@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #c5c8c6;
+    background: #1d1f21;
+    overflow: hidden;
+    font-size: 2.5vw;
+    font-family: sans-serif;
+}
+
+#parent {
+}
+
+.slide {
+    display: none;
+}
+
+.slide pre, .slide pre code {
+    margin: 0;
+    padding: 0;
+}
+
+.byline {
+    color: #707880;
+}
+
+.fade {
+    opacity: 0.3;
+}

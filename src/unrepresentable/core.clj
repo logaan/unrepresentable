@@ -1,6 +1,7 @@
 (ns unrepresentable.core
   (:require [hiccup.core :refer [html]]
-            [clojure.string :refer [split]]))
+            [clojure.string :refer [split]]
+            [clojure.java.io :as io]))
 
 (defn boilerplate [& slides]
   (html
@@ -26,9 +27,8 @@
 (defn code [language filename fades]
   (for [lines fades]
     (let [lines (set lines)
-          path (str "/Users/logaan/code/clojure/unrepresentable/src/unrepresentable/"
-                    filename)
-          code (slurp path)]
+          path  (.getPath (io/resource (str "code/" filename)))
+          code  (slurp path)]
       [:div {:class "slide"}
        (if (empty? lines)
 
@@ -128,7 +128,7 @@
    ))
 
 (def path
-  "/Users/logaan/code/typescript/unrepresentable/scratch/src/index.html" )
+  (.getPath (io/resource "index.html")))
 
 (defn main []
   (spit path slides))

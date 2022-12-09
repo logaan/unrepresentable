@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd resources
+python3 -m http.server
