@@ -22,11 +22,13 @@
   [:div {:class "slide"}
    [:img {:height "90%" :src (str "/images/" filename)}]])
 
-(defn code-slide [language code]
-  [:div {:class "slide"}
-   [:pre
-    [:code {:class [(str "language-" language)]}
-     code]]])
+(defn code-slide [language filename]
+  (let [path (str "/Users/logaan/code/clojure/unrepresentable/src/unrepresentable/"
+                  filename)]
+    [:div {:class "slide"}
+    [:pre
+     [:code {:class [(str "language-" language)]}
+      (slurp path)]]]))
 
 (def slides
   (boilerplate
@@ -40,24 +42,7 @@
 
    (image-slide "03-drip-coffee.jpg")
 
-   (code-slide
-    "typescript"
-    "type food = \"pancakes\";
-
-type beverage
-    = \"tea\"
-    | \"batch_brew\";
-
-type drink =
-    {beverage: beverage,
-     milk:     boolean,
-     sugar:    boolean};
-
-type order_item = food | drink;
-type order      = order_item[];
-")
-
-   ))
+   (code-slide "typescript" "pancakes.ts")))
 
 (def path
   "/Users/logaan/code/typescript/unrepresentable/scratch/src/index.html" )
