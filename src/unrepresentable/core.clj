@@ -14,16 +14,16 @@
      [:script "hljs.highlightAll();"]
      [:script {:src "/js/slideshow.js"}]]]))
 
-(defn title-slide [name byline]
+(defn title [name byline]
   [:div {:class "slide"}
    [:h1 name]
    [:h2 {:class "byline"} byline]])
 
-(defn image-slide [filename]
+(defn image [filename]
   [:div {:class "slide"}
    [:img {:height "90%" :src (str "/images/" filename)}]])
 
-(defn code-slide [language filename & fades]
+(defn code [language filename & fades]
   (for [lines fades]
     (let [lines (set lines)
           path (str "/Users/logaan/code/clojure/unrepresentable/src/unrepresentable/"
@@ -44,22 +44,56 @@
 
 (def slides
   (boilerplate
-   (title-slide
+   (title
     '("Pancakes with" [:br] "a side of nonsense")
     "Logan Campbell")
 
-   (image-slide "01-diner.jpg")
+   (image "01-diner.jpg")
 
-   (image-slide "02-pancakes.jpg")
+   (image "02-pancakes.jpg")
 
-   (image-slide "03-drip-coffee.jpg")
+   (image "03-drip-coffee.jpg")
 
-   (code-slide "typescript" "pancakes.ts"
+   (code "typescript" "01-pancakes.ts"
                [1]
                (range 3 6)
                (range 3 11)
                [12 13]
-               [])))
+               [])
+
+   (code "typescript" "02-orders.ts"
+               (range 1 6)
+               (range 7 11)
+               [])
+
+   (image "04-espresso-machine.jpg")
+
+   (code "typescript" "03-espresso.ts"
+               [5 6])
+
+   (code "typescript" "04-cappuchino-no-milk.ts"
+               [])
+
+   (code "typescript" "05-make-coffee-constructor.ts"
+         []
+         [5 6])
+
+   (image "05-make-coffee-constructor.png")
+
+   (code "typescript" "06-more-granular-types.ts"
+         []
+         [6])
+
+   (code "ruby" "07-ruby-new-drink.rb"
+         [])
+
+   (code "ruby" "08-class-cappuchino.rb"
+         [])
+
+   (code "ruby" "09-irb-unknown-keyword-milk.rb"
+         [])
+
+   ))
 
 (def path
   "/Users/logaan/code/typescript/unrepresentable/scratch/src/index.html" )
