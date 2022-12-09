@@ -1,5 +1,6 @@
 (ns unrepresentable.core
-  (:require [hiccup.core :refer [html]]))
+  (:require [hiccup.core :refer [html]]
+            [clojure.string :refer [split]]))
 
 (defn boilerplate [& slides]
   (html
@@ -22,13 +23,24 @@
   [:div {:class "slide"}
    [:img {:height "90%" :src (str "/images/" filename)}]])
 
-(defn code-slide [language filename]
-  (let [path (str "/Users/logaan/code/clojure/unrepresentable/src/unrepresentable/"
-                  filename)]
-    [:div {:class "slide"}
-    [:pre
-     [:code {:class [(str "language-" language)]}
-      (slurp path)]]]))
+(defn code-slide [language filename & fades]
+  (for [lines fades]
+    (let [lines (set lines)
+          path (str "/Users/logaan/code/clojure/unrepresentable/src/unrepresentable/"
+                    filename)
+          code (slurp path)]
+      [:div {:class "slide"}
+       (if (empty? lines)
+
+         [:pre
+          [:code {:class (str "language-" language)}
+           code]]
+
+         (for [[n line] (map list (range) (split code #"\n"))]
+           [:pre
+            [:code {:class (str "language-" language " "
+                                (if (lines (inc n)) "show" "fade"))}
+             line "\n"]]))])))
 
 (def slides
   (boilerplate
@@ -42,7 +54,12 @@
 
    (image-slide "03-drip-coffee.jpg")
 
-   (code-slide "typescript" "pancakes.ts")))
+   (code-slide "typescript" "pancakes.ts"
+               [1]
+               (range 3 6)
+               (range 3 11)
+               [12 13]
+               [])))
 
 (def path
   "/Users/logaan/code/typescript/unrepresentable/scratch/src/index.html" )
