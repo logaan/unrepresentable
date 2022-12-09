@@ -7,13 +7,13 @@
   (html
    [:html
     [:head
-     [:link {:rel "stylesheet" :href "/css/hybrid.min.css"}]
-     [:link {:rel "stylesheet" :href "/css/slideshow.css"}]]
+     [:link {:rel "stylesheet" :href "css/hybrid.min.css"}]
+     [:link {:rel "stylesheet" :href "css/slideshow.css"}]]
     [:body
      slides
-     [:script {:src "/js/highlight.min.js"}]
+     [:script {:src "js/highlight.min.js"}]
      [:script "hljs.highlightAll();"]
-     [:script {:src "/js/slideshow.js"}]]]))
+     [:script {:src "js/slideshow.js"}]]]))
 
 (defn title [name byline]
   [:div {:class "slide"}
@@ -22,7 +22,7 @@
 
 (defn image [filename]
   [:div {:class "slide"}
-   [:img {:height "90%" :src (str "/images/" filename)}]])
+   [:img {:height "90%" :src (str "images/" filename)}]])
 
 (defn code [language filename fades]
   (for [lines fades]
