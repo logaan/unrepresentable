@@ -23,7 +23,7 @@
   [:div {:class "slide"}
    [:img {:height "90%" :src (str "/images/" filename)}]])
 
-(defn code [language filename & fades]
+(defn code [language filename fades]
   (for [lines fades]
     (let [lines (set lines)
           path (str "/Users/logaan/code/clojure/unrepresentable/src/unrepresentable/"
@@ -42,6 +42,12 @@
                                 (if (lines (inc n)) "show" "fade"))}
              line "\n"]]))])))
 
+(defn typescript [file fades]
+  (code "typescript" (str file ".ts") fades))
+
+(defn ruby [file fades]
+  (code "ruby" (str file ".rb") fades))
+
 (def slides
   (boilerplate
    (title
@@ -54,45 +60,71 @@
 
    (image "03-drip-coffee.jpg")
 
-   (code "typescript" "01-pancakes.ts"
-               [1]
-               (range 3 6)
-               (range 3 11)
-               [12 13]
-               [])
+   (typescript "01-pancakes"
+               [[1]
+                (range 3 6)
+                (range 3 11)
+                [12 13]
+                []])
 
-   (code "typescript" "02-orders.ts"
-               (range 1 6)
-               (range 7 11)
-               [])
+   (typescript "02-orders"
+               [(range 1 6)
+                (range 7 11)
+                []])
 
    (image "04-espresso-machine.jpg")
 
-   (code "typescript" "03-espresso.ts"
-               [5 6])
+   (typescript "03-espresso"
+               [[5 6]])
 
-   (code "typescript" "04-cappuchino-no-milk.ts"
-               [])
+   (typescript "04-cappuchino-no-milk" [[]])
 
-   (code "typescript" "05-make-coffee-constructor.ts"
-         []
-         [5 6])
+   (typescript "05-make-coffee-constructor"
+               [[]
+                [5 6]])
 
    (image "05-make-coffee-constructor.png")
 
-   (code "typescript" "06-more-granular-types.ts"
-         []
-         [6])
+   (typescript "06-more-granular-types"
+               [[]
+                [6]])
 
-   (code "ruby" "07-ruby-new-drink.rb"
-         [])
+   (ruby "07-ruby-new-drink" [[]])
 
-   (code "ruby" "08-class-cappuchino.rb"
-         [])
+   (ruby "08-class-cappuchino" [[]])
 
-   (code "ruby" "09-irb-unknown-keyword-milk.rb"
-         [])
+   (ruby "09-irb-unknown-keyword-milk" [[]])
 
+   (ruby "10-irb-safe-for-lactose-intollerant-customer"
+         [(range 1 4)
+          (range 5 8)
+          []])
+
+   (typescript "11-user-role"
+               [(range 1 5)
+                (range 6 10)])
+
+   (typescript "12-years-of-experience"
+               [(range 1 8)
+                (range 9 18)])
+
+   (typescript "13-soft-delete"
+               [(range 1 4)
+                (range 5 9)
+                (range 10 14)
+                (range 15 19)])
+
+   (typescript "14-better-soft-delete"
+               [(range 1 5)
+                (range 6 8)
+                (range 9 13)
+                (range 14 18)])
+
+   (typescript "15-parcel"
+               [[]])
+
+   (typescript "16-delivery-status"
+               [[]])
    ))
 
 (def path
