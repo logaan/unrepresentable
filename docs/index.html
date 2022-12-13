@@ -132,221 +132,192 @@ end
     @sugar = sugar
   end
 end
-</code></pre></div><div class="slide"><h1>Sloppy types</h1><pre><code class="language-typescript show">var user_role: string;
+</code></pre></div><div class="slide"><img height="90%" src="images/10-blurry-intersection.jpg" /></div><div class="slide"><h1>Vague types</h1><pre><code class="language-typescript show">var user_role: string;
 </code></pre><pre><code class="language-typescript show">
-</code></pre><pre><code class="language-typescript show">user_role = "admin";                // This is fine
-</code></pre><pre><code class="language-typescript show">user_role = "milk_free_cappuccino"; // This is nonsense
+</code></pre><pre><code class="language-typescript show">user_role = "admin";
+</code></pre><pre><code class="language-typescript show">user_role = "milk_free_cappuccino";
 </code></pre><pre><code class="language-typescript fade">
 </code></pre><pre><code class="language-typescript fade">var user_role: "end_user" | "agent" | "admin";
 </code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">user_role = "admin";                // This is fine
-</code></pre><pre><code class="language-typescript fade">user_role = "milk_free_cappuccino"; // This won't compile
-</code></pre></div><div class="slide"><h1>Sloppy types</h1><pre><code class="language-typescript fade">var user_role: string;
+</code></pre><pre><code class="language-typescript fade">user_role = "admin";
+</code></pre><pre><code class="language-typescript fade">user_role = "milk_free_cappuccino";
+</code></pre></div><div class="slide"><h1>Vague types</h1><pre><code class="language-typescript fade">var user_role: string;
 </code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">user_role = "admin";                // This is fine
-</code></pre><pre><code class="language-typescript fade">user_role = "milk_free_cappuccino"; // This is nonsense
+</code></pre><pre><code class="language-typescript fade">user_role = "admin";
+</code></pre><pre><code class="language-typescript fade">user_role = "milk_free_cappuccino";
 </code></pre><pre><code class="language-typescript fade">
 </code></pre><pre><code class="language-typescript show">var user_role: "end_user" | "agent" | "admin";
 </code></pre><pre><code class="language-typescript show">
-</code></pre><pre><code class="language-typescript show">user_role = "admin";                // This is fine
-</code></pre><pre><code class="language-typescript show">user_role = "milk_free_cappuccino"; // This won't compile
-</code></pre></div><div class="slide"><pre><code class="language-typescript show">var years_of_experience: number;
-</code></pre><pre><code class="language-typescript show">
-</code></pre><pre><code class="language-typescript show">years_of_experience = 5;    // This is fine
-</code></pre><pre><code class="language-typescript show">years_of_experience = 1.5;  // Seems reasonable
-</code></pre><pre><code class="language-typescript show">
-</code></pre><pre><code class="language-typescript show">years_of_experience = 1000; // Nonsense
-</code></pre><pre><code class="language-typescript show">years_of_experience = -42;  // Negative nonsense
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">var years_of_experience:
-</code></pre><pre><code class="language-typescript fade">    0 | 1 | 2 | 3 | 4 | 5 |
-</code></pre><pre><code class="language-typescript fade">    6 | 7 | 8 | 9 | "10+";
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">years_of_experience = 5;    // This is fine
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">years_of_experience = 1.5;  // Nonsense
-</code></pre><pre><code class="language-typescript fade">years_of_experience = 1000; // won't
-</code></pre><pre><code class="language-typescript fade">years_of_experience = -42;  // compile
-</code></pre></div><div class="slide"><pre><code class="language-typescript fade">var years_of_experience: number;
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">years_of_experience = 5;    // This is fine
-</code></pre><pre><code class="language-typescript fade">years_of_experience = 1.5;  // Seems reasonable
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">years_of_experience = 1000; // Nonsense
-</code></pre><pre><code class="language-typescript fade">years_of_experience = -42;  // Negative nonsense
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript show">var years_of_experience:
-</code></pre><pre><code class="language-typescript show">    0 | 1 | 2 | 3 | 4 | 5 |
-</code></pre><pre><code class="language-typescript show">    6 | 7 | 8 | 9 | "10+";
-</code></pre><pre><code class="language-typescript show">
-</code></pre><pre><code class="language-typescript show">years_of_experience = 5;    // This is fine
-</code></pre><pre><code class="language-typescript show">
-</code></pre><pre><code class="language-typescript show">years_of_experience = 1.5;  // Nonsense
-</code></pre><pre><code class="language-typescript show">years_of_experience = 1000; // won't
-</code></pre><pre><code class="language-typescript show">years_of_experience = -42;  // compile
-</code></pre></div><div class="slide"><pre><code class="language-typescript show">var record: {id:         number,
+</code></pre><pre><code class="language-typescript show">user_role = "admin";
+</code></pre><pre><code class="language-typescript show">user_role = "milk_free_cappuccino";
+</code></pre></div><div class="slide"><img height="90%" src="images/11-twin-ducks.jpg" /></div><div class="slide"><h1>Related fields</h1><pre><code class="language-typescript show">var record: {id:         number,
 </code></pre><pre><code class="language-typescript show">             deleted:    Date   | null,
 </code></pre><pre><code class="language-typescript show">             deleted_by: string | null}
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">// Valid. Not deleted.
+</code></pre><pre><code class="language-typescript fade">                                             
 </code></pre><pre><code class="language-typescript fade">record = {id:         1,
 </code></pre><pre><code class="language-typescript fade">          deleted:    null,
 </code></pre><pre><code class="language-typescript fade">          deleted_by: null}
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">// Valid. Soft deleted.
-</code></pre><pre><code class="language-typescript fade">record = {id:         1,
-</code></pre><pre><code class="language-typescript fade">          deleted:    new Date("2022-03-25"),
-</code></pre><pre><code class="language-typescript fade">          deleted_by: "Logan"}
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">// Invalid. If it's soft deleted we need both fields set.
-</code></pre><pre><code class="language-typescript fade">record = {id:         1,
-</code></pre><pre><code class="language-typescript fade">          deleted:    null,
-</code></pre><pre><code class="language-typescript fade">          deleted_by: "Logan"}
-</code></pre></div><div class="slide"><pre><code class="language-typescript fade">var record: {id:         number,
+</code></pre></div><div class="slide"><h1>Related fields</h1><pre><code class="language-typescript fade">var record: {id:         number,
 </code></pre><pre><code class="language-typescript fade">             deleted:    Date   | null,
 </code></pre><pre><code class="language-typescript fade">             deleted_by: string | null}
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript show">// Valid. Not deleted.
+</code></pre><pre><code class="language-typescript fade">                                             
 </code></pre><pre><code class="language-typescript show">record = {id:         1,
 </code></pre><pre><code class="language-typescript show">          deleted:    null,
 </code></pre><pre><code class="language-typescript show">          deleted_by: null}
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">// Valid. Soft deleted.
-</code></pre><pre><code class="language-typescript fade">record = {id:         1,
-</code></pre><pre><code class="language-typescript fade">          deleted:    new Date("2022-03-25"),
-</code></pre><pre><code class="language-typescript fade">          deleted_by: "Logan"}
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">// Invalid. If it's soft deleted we need both fields set.
-</code></pre><pre><code class="language-typescript fade">record = {id:         1,
-</code></pre><pre><code class="language-typescript fade">          deleted:    null,
-</code></pre><pre><code class="language-typescript fade">          deleted_by: "Logan"}
-</code></pre></div><div class="slide"><pre><code class="language-typescript fade">var record: {id:         number,
+</code></pre></div><div class="slide"><h1>Related fields</h1><pre><code class="language-typescript fade">var record: {id:         number,
 </code></pre><pre><code class="language-typescript fade">             deleted:    Date   | null,
 </code></pre><pre><code class="language-typescript fade">             deleted_by: string | null}
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">// Valid. Not deleted.
-</code></pre><pre><code class="language-typescript fade">record = {id:         1,
-</code></pre><pre><code class="language-typescript fade">          deleted:    null,
-</code></pre><pre><code class="language-typescript fade">          deleted_by: null}
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript show">// Valid. Soft deleted.
+</code></pre><pre><code class="language-typescript fade">                                             
 </code></pre><pre><code class="language-typescript show">record = {id:         1,
 </code></pre><pre><code class="language-typescript show">          deleted:    new Date("2022-03-25"),
 </code></pre><pre><code class="language-typescript show">          deleted_by: "Logan"}
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">// Invalid. If it's soft deleted we need both fields set.
-</code></pre><pre><code class="language-typescript fade">record = {id:         1,
-</code></pre><pre><code class="language-typescript fade">          deleted:    null,
-</code></pre><pre><code class="language-typescript fade">          deleted_by: "Logan"}
-</code></pre></div><div class="slide"><pre><code class="language-typescript fade">var record: {id:         number,
+</code></pre></div><div class="slide"><h1>Related fields</h1><pre><code class="language-typescript fade">var record: {id:         number,
 </code></pre><pre><code class="language-typescript fade">             deleted:    Date   | null,
 </code></pre><pre><code class="language-typescript fade">             deleted_by: string | null}
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">// Valid. Not deleted.
-</code></pre><pre><code class="language-typescript fade">record = {id:         1,
-</code></pre><pre><code class="language-typescript fade">          deleted:    null,
-</code></pre><pre><code class="language-typescript fade">          deleted_by: null}
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">// Valid. Soft deleted.
-</code></pre><pre><code class="language-typescript fade">record = {id:         1,
-</code></pre><pre><code class="language-typescript fade">          deleted:    new Date("2022-03-25"),
-</code></pre><pre><code class="language-typescript fade">          deleted_by: "Logan"}
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript show">// Invalid. If it's soft deleted we need both fields set.
+</code></pre><pre><code class="language-typescript fade">                                             
 </code></pre><pre><code class="language-typescript show">record = {id:         1,
 </code></pre><pre><code class="language-typescript show">          deleted:    null,
 </code></pre><pre><code class="language-typescript show">          deleted_by: "Logan"}
-</code></pre></div><div class="slide"><pre><code class="language-typescript show">type deletion = {deleted:    Date,
+</code></pre></div><div class="slide"><h1>Related fields</h1><pre><code class="language-typescript fade">var record: {id:         number,
+</code></pre><pre><code class="language-typescript fade">             deleted:    Date   | null,
+</code></pre><pre><code class="language-typescript fade">             deleted_by: string | null}
+</code></pre><pre><code class="language-typescript fade">
+</code></pre><pre><code class="language-typescript show">type deletion = {deleted:    Date,
 </code></pre><pre><code class="language-typescript show">                 deleted_by: string};
 </code></pre><pre><code class="language-typescript show">
-</code></pre><pre><code class="language-typescript show">var record: {id: number, deletion: deletion | null}
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">// Valid. Not deleted.
-</code></pre><pre><code class="language-typescript fade">record = {id: 1, deletion: null}
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">// Valid. Soft deleted.
-</code></pre><pre><code class="language-typescript fade">record = {id: 1,
-</code></pre><pre><code class="language-typescript fade">          deletion: {deleted:    new Date("2022-03-25"),
-</code></pre><pre><code class="language-typescript fade">                     deleted_by: "Logan"}}
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">// Invalid and will be picked up by type checker
-</code></pre><pre><code class="language-typescript fade">record = {id: 1,
-</code></pre><pre><code class="language-typescript fade">          deletion: {deleted:    null
-</code></pre><pre><code class="language-typescript fade">                     deleted_by: "Logan"}}
-</code></pre></div><div class="slide"><pre><code class="language-typescript fade">type deletion = {deleted:    Date,
+</code></pre><pre><code class="language-typescript show">var record: {id:       number,
+</code></pre><pre><code class="language-typescript show">             deletion: deletion | null}
+</code></pre></div><div class="slide"><h1>Related fields</h1><pre><code class="language-typescript fade">type deletion = {deleted:    Date,
 </code></pre><pre><code class="language-typescript fade">                 deleted_by: string};
 </code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">var record: {id: number, deletion: deletion | null}
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript show">// Valid. Not deleted.
-</code></pre><pre><code class="language-typescript show">record = {id: 1, deletion: null}
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">// Valid. Soft deleted.
-</code></pre><pre><code class="language-typescript fade">record = {id: 1,
-</code></pre><pre><code class="language-typescript fade">          deletion: {deleted:    new Date("2022-03-25"),
-</code></pre><pre><code class="language-typescript fade">                     deleted_by: "Logan"}}
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">// Invalid and will be picked up by type checker
-</code></pre><pre><code class="language-typescript fade">record = {id: 1,
-</code></pre><pre><code class="language-typescript fade">          deletion: {deleted:    null
-</code></pre><pre><code class="language-typescript fade">                     deleted_by: "Logan"}}
-</code></pre></div><div class="slide"><pre><code class="language-typescript fade">type deletion = {deleted:    Date,
+</code></pre><pre><code class="language-typescript fade">var record: {id:       number,
+</code></pre><pre><code class="language-typescript fade">             deletion: deletion | null}
+</code></pre><pre><code class="language-typescript fade">                                                        
+</code></pre><pre><code class="language-typescript show">record = {id:       1,
+</code></pre><pre><code class="language-typescript show">          deletion: null}
+</code></pre><pre><code class="language-typescript fade"> 
+</code></pre></div><div class="slide"><h1>Related fields</h1><pre><code class="language-typescript fade">type deletion = {deleted:    Date,
 </code></pre><pre><code class="language-typescript fade">                 deleted_by: string};
 </code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">var record: {id: number, deletion: deletion | null}
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">// Valid. Not deleted.
-</code></pre><pre><code class="language-typescript fade">record = {id: 1, deletion: null}
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript show">// Valid. Soft deleted.
-</code></pre><pre><code class="language-typescript show">record = {id: 1,
+</code></pre><pre><code class="language-typescript fade">var record: {id:       number,
+</code></pre><pre><code class="language-typescript fade">             deletion: deletion | null}
+</code></pre><pre><code class="language-typescript fade">                                                        
+</code></pre><pre><code class="language-typescript show">record = {id:       1,
 </code></pre><pre><code class="language-typescript show">          deletion: {deleted:    new Date("2022-03-25"),
 </code></pre><pre><code class="language-typescript show">                     deleted_by: "Logan"}}
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">// Invalid and will be picked up by type checker
-</code></pre><pre><code class="language-typescript fade">record = {id: 1,
-</code></pre><pre><code class="language-typescript fade">          deletion: {deleted:    null
-</code></pre><pre><code class="language-typescript fade">                     deleted_by: "Logan"}}
-</code></pre></div><div class="slide"><pre><code class="language-typescript fade">type deletion = {deleted:    Date,
+</code></pre></div><div class="slide"><h1>Related fields</h1><pre><code class="language-typescript fade">type deletion = {deleted:    Date,
 </code></pre><pre><code class="language-typescript fade">                 deleted_by: string};
 </code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">var record: {id: number, deletion: deletion | null}
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">// Valid. Not deleted.
-</code></pre><pre><code class="language-typescript fade">record = {id: 1, deletion: null}
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">// Valid. Soft deleted.
-</code></pre><pre><code class="language-typescript fade">record = {id: 1,
-</code></pre><pre><code class="language-typescript fade">          deletion: {deleted:    new Date("2022-03-25"),
-</code></pre><pre><code class="language-typescript fade">                     deleted_by: "Logan"}}
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript show">// Invalid and will be picked up by type checker
-</code></pre><pre><code class="language-typescript show">record = {id: 1,
+</code></pre><pre><code class="language-typescript fade">var record: {id:       number,
+</code></pre><pre><code class="language-typescript fade">             deletion: deletion | null}
+</code></pre><pre><code class="language-typescript fade">                                                        
+</code></pre><pre><code class="language-typescript show">record = {id:       1,
 </code></pre><pre><code class="language-typescript show">          deletion: {deleted:    null
 </code></pre><pre><code class="language-typescript show">                     deleted_by: "Logan"}}
-</code></pre></div><div class="slide"><pre><code class="language-typescript">var parcel: {id:                     number,
-             product_id:             number,
-             shipped:                Date,
-             delivered:              Date,
-             lost_during_delivery:   boolean,
-             dead_on_arrival_return: boolean,
-             change_of_mind_return:  boolean
-             returned:               Date};
-
+</code></pre></div><div class="slide"><img height="90%" src="images/12-car-crash.jpg" /></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-typescript">var parcel: {id:                     number,
+             state:                  string,
+             shipped:                Date    | null,
+             lost_during_delivery:   boolean | null,
+             delivered:              Date    | null,
+             returned:               Date    | null,
+             dead_on_arrival_return: boolean | null,
+             change_of_mind_return:  boolean | null};
+</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-typescript fade">var parcel: {id:                     number,
+</code></pre><pre><code class="language-typescript show">             state:                  string,
+</code></pre><pre><code class="language-typescript fade">             shipped:                Date    | null,
+</code></pre><pre><code class="language-typescript fade">             lost_during_delivery:   boolean | null,
+</code></pre><pre><code class="language-typescript fade">             delivered:              Date    | null,
+</code></pre><pre><code class="language-typescript fade">             returned:               Date    | null,
+</code></pre><pre><code class="language-typescript fade">             dead_on_arrival_return: boolean | null,
+</code></pre><pre><code class="language-typescript fade">             change_of_mind_return:  boolean | null};
+</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-typescript fade">var parcel: {id:                     number,
+</code></pre><pre><code class="language-typescript fade">             state:                  string,
+</code></pre><pre><code class="language-typescript show">             shipped:                Date    | null,
+</code></pre><pre><code class="language-typescript show">             lost_during_delivery:   boolean | null,
+</code></pre><pre><code class="language-typescript fade">             delivered:              Date    | null,
+</code></pre><pre><code class="language-typescript fade">             returned:               Date    | null,
+</code></pre><pre><code class="language-typescript fade">             dead_on_arrival_return: boolean | null,
+</code></pre><pre><code class="language-typescript fade">             change_of_mind_return:  boolean | null};
+</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-typescript fade">var parcel: {id:                     number,
+</code></pre><pre><code class="language-typescript fade">             state:                  string,
+</code></pre><pre><code class="language-typescript show">             shipped:                Date    | null,
+</code></pre><pre><code class="language-typescript fade">             lost_during_delivery:   boolean | null,
+</code></pre><pre><code class="language-typescript show">             delivered:              Date    | null,
+</code></pre><pre><code class="language-typescript fade">             returned:               Date    | null,
+</code></pre><pre><code class="language-typescript fade">             dead_on_arrival_return: boolean | null,
+</code></pre><pre><code class="language-typescript fade">             change_of_mind_return:  boolean | null};
+</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-typescript fade">var parcel: {id:                     number,
+</code></pre><pre><code class="language-typescript fade">             state:                  string,
+</code></pre><pre><code class="language-typescript fade">             shipped:                Date    | null,
+</code></pre><pre><code class="language-typescript show">             lost_during_delivery:   boolean | null,
+</code></pre><pre><code class="language-typescript show">             delivered:              Date    | null,
+</code></pre><pre><code class="language-typescript fade">             returned:               Date    | null,
+</code></pre><pre><code class="language-typescript fade">             dead_on_arrival_return: boolean | null,
+</code></pre><pre><code class="language-typescript fade">             change_of_mind_return:  boolean | null};
+</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-typescript fade">var parcel: {id:                     number,
+</code></pre><pre><code class="language-typescript fade">             state:                  string,
+</code></pre><pre><code class="language-typescript show">             shipped:                Date    | null,
+</code></pre><pre><code class="language-typescript fade">             lost_during_delivery:   boolean | null,
+</code></pre><pre><code class="language-typescript fade">             delivered:              Date    | null,
+</code></pre><pre><code class="language-typescript show">             returned:               Date    | null,
+</code></pre><pre><code class="language-typescript fade">             dead_on_arrival_return: boolean | null,
+</code></pre><pre><code class="language-typescript fade">             change_of_mind_return:  boolean | null};
+</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-typescript fade">var parcel: {id:                     number,
+</code></pre><pre><code class="language-typescript fade">             state:                  string,
+</code></pre><pre><code class="language-typescript fade">             shipped:                Date    | null,
+</code></pre><pre><code class="language-typescript show">             lost_during_delivery:   boolean | null,
+</code></pre><pre><code class="language-typescript fade">             delivered:              Date    | null,
+</code></pre><pre><code class="language-typescript show">             returned:               Date    | null,
+</code></pre><pre><code class="language-typescript fade">             dead_on_arrival_return: boolean | null,
+</code></pre><pre><code class="language-typescript fade">             change_of_mind_return:  boolean | null};
+</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-typescript fade">var parcel: {id:                     number,
+</code></pre><pre><code class="language-typescript fade">             state:                  string,
+</code></pre><pre><code class="language-typescript fade">             shipped:                Date    | null,
+</code></pre><pre><code class="language-typescript fade">             lost_during_delivery:   boolean | null,
+</code></pre><pre><code class="language-typescript show">             delivered:              Date    | null,
+</code></pre><pre><code class="language-typescript show">             returned:               Date    | null,
+</code></pre><pre><code class="language-typescript fade">             dead_on_arrival_return: boolean | null,
+</code></pre><pre><code class="language-typescript fade">             change_of_mind_return:  boolean | null};
+</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-typescript fade">var parcel: {id:                     number,
+</code></pre><pre><code class="language-typescript fade">             state:                  string,
+</code></pre><pre><code class="language-typescript fade">             shipped:                Date    | null,
+</code></pre><pre><code class="language-typescript fade">             lost_during_delivery:   boolean | null,
+</code></pre><pre><code class="language-typescript fade">             delivered:              Date    | null,
+</code></pre><pre><code class="language-typescript show">             returned:               Date    | null,
+</code></pre><pre><code class="language-typescript show">             dead_on_arrival_return: boolean | null,
+</code></pre><pre><code class="language-typescript show">             change_of_mind_return:  boolean | null};
+</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-typescript fade">var parcel: {id:                     number,
+</code></pre><pre><code class="language-typescript fade">             state:                  string,
+</code></pre><pre><code class="language-typescript fade">             shipped:                Date    | null,
+</code></pre><pre><code class="language-typescript fade">             lost_during_delivery:   boolean | null,
+</code></pre><pre><code class="language-typescript fade">             delivered:              Date    | null,
+</code></pre><pre><code class="language-typescript fade">             returned:               Date    | null,
+</code></pre><pre><code class="language-typescript show">             dead_on_arrival_return: boolean | null,
+</code></pre><pre><code class="language-typescript show">             change_of_mind_return:  boolean | null};
+</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-typescript fade">var parcel: {id:                     number,
+</code></pre><pre><code class="language-typescript show">             state:                  string,
+</code></pre><pre><code class="language-typescript show">             shipped:                Date    | null,
+</code></pre><pre><code class="language-typescript show">             lost_during_delivery:   boolean | null,
+</code></pre><pre><code class="language-typescript show">             delivered:              Date    | null,
+</code></pre><pre><code class="language-typescript show">             returned:               Date    | null,
+</code></pre><pre><code class="language-typescript show">             dead_on_arrival_return: boolean | null,
+</code></pre><pre><code class="language-typescript show">             change_of_mind_return:  boolean | null};
 </code></pre></div><div class="slide"><pre><code class="language-typescript">type delivery_status
-    = {type: "preparing"}
-    | {type: "in_transit",
-       shipped: Date}
-    | {type: "delivered",
-       shipped: Date, delivered: Date}
-    | {type: "lost_during_delivery",
-       shipped: Date}
-    | {type: "dead_on_arrival_return",
-       shipped: Date, delivered: Date, returned: Date}
-    | {type: "change_of_mind_return",
-       shipped: Date, delivered: Date, returned: Date};
+    = {state:     "preparing"}
 
-var parcel: {id:              number,
-             product_id:      number,
-             delivery_status: delivery_status};
-</code></pre></div><div class="slide"><h1>Data types are<br />countable</h1></div><div class="slide"><h1>Code complexity is<br />measurable</h1></div><div class="slide"><h1>Simple data means<br />simple code</h1></div><div class="slide"><h1>Simple data means<br />less bugs</h1></div><script src="js/highlight.min.js"></script><script>hljs.highlightAll();</script><script src="js/slideshow.js"></script></body></html>
+    | {state:     "in_transit",
+       shipped:   Date}
+
+    | {state:     "lost_during_delivery",
+       shipped:   Date}
+
+    | {state:     "delivered",
+       shipped:   Date,
+       delivered: Date}
+
+    | {state:     "returned",
+       reason:    "dead_on_arrival" | "change_of_mind"
+       shipped:   Date,
+       delivered: Date,
+       returned:  Date};
+</code></pre></div><div class="slide"><h1>Data types are<br />countable</h1></div><div class="slide"><h1>Code complexity is<br />measurable</h1></div><div class="slide"><h1>Simple data means<br />simple code</h1></div><div class="slide"><h1>Simple data means<br />less bugs</h1></div><div class="slide"><h1>Simple data means<br />less to think about</h1></div><div class="slide"><h1>Thank you</h1></div><div class="slide"><h1>Questions?</h1></div><script src="js/highlight.min.js"></script><script>hljs.highlightAll();</script><script src="js/slideshow.js"></script></body></html>

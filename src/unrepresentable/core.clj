@@ -147,28 +147,89 @@
 
    ;; Real examples
 
+   (image "10-blurry-intersection.jpg")
+
    (typescript "11-user-role"
                [(range 1 5)
                 (range 6 10)]
-               "Sloppy types")
+               "Vague types")
 
-   (typescript "13-soft-delete"
+   (image "11-twin-ducks.jpg")
+
+   (typescript "13.0-valid-no-delete"
                [(range 1 4)
-                (range 5 9)
-                (range 10 14)
-                (range 15 19)])
+                (range 5 8)]
+               "Related fields")
 
-   (typescript "14-better-soft-delete"
-               [(range 1 5)
-                (range 6 8)
-                (range 9 13)
-                (range 14 18)])
+   (typescript "13.1-valid-soft-delete"
+               [(range 5 8)]
+               "Related fields")
+
+   (typescript "13.2-invalid-soft-delete"
+               [(range 5 8)]
+               "Related fields")
+
+   (typescript "13.3-change-to-better"
+               [(range 5 10)]
+               "Related fields")
+
+   (typescript "14.0-better-no-delete"
+               [(range 7 9)]
+               "Related fields")
+
+   (typescript "14.1-better-soft-delete"
+               [(range 7 10)]
+               "Related fields")
+
+   (typescript "14.2-better-invalid-delete"
+               [(range 7 10)]
+               "Related fields")
+
+   (image "12-car-crash.jpg")
 
    (typescript "15-parcel"
-               [[]])
+               [[]
+                [2]
+                ;; If lost, better be shipped
+                [3 4]
+                ;; Same for delivery
+                [3 5]
+                ;; And if it was delivered it shouldn't be lost
+                [4 5]
+                ;; If it was returned it must have been shipped
+                [3 6]
+                ;; And not been lost
+                [4 6]
+                ;; And have been delivered
+                [5 6]
+                ;; And you had better have a reason for return
+                [6 7 8]
+                ;; But definately only one reason
+                [7 8]
+                (range 2 9)
+                ]
+               "State machine car crash")
 
    (typescript "16-delivery-status"
                [[]])
+
+   ;; TODO: new slides
+   ;; "In fact, if we ignore dates are pratically infinite, our original parcel
+   ;; design has 5 possible state values, 2 shipped values, 3 lost during
+   ;; delivery values, 2 delivered, 2 returned, 3 dead on arrival return, 3
+   ;; change of mind return. If we multiply that out it's 1080 states. And how
+   ;; many of them are valid?"
+   ;;
+   ;; 6. Only 6. That's 99.44% nonsense. Over the life time of a project you're
+   ;; practically gaurenteed to mess it up. And if you wanted to write the
+   ;; validation logic to ensure that the data is correct? And the unit tests to
+   ;; make sure the validation logic is right. It'll be long, complex, no fun to
+   ;; work on, and probably wrong.
+   ;;
+   ;; I hope this example doesn't feel contrived to you. We've got code that
+   ;; follows this exact pattern at Zendesk. If you're using a single databse
+   ;; table to represent a state machine then you might want to think through
+   ;; whether your code could do with a visit to the mechanic.
 
    (title '("Data types are" [:br] "countable"))
 
@@ -177,6 +238,12 @@
    (title '("Simple data means" [:br] "simple code"))
 
    (title '("Simple data means" [:br] "less bugs"))
+
+   (title '("Simple data means" [:br] "less to think about"))
+
+   (title "Thank you")
+
+   (title "Questions?")
 
    ))
 
