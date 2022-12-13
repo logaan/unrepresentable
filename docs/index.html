@@ -62,15 +62,11 @@ type drink =
 </code></pre><pre><code class="language-typescript show">     {beverage: "cappuchino",
 </code></pre><pre><code class="language-typescript show">      milk:     false,
 </code></pre><pre><code class="language-typescript fade">      sugar:    false}];
-</code></pre></div><div class="slide"><img height="90%" src="images/08-espresso-options-invalid.png" /></div><div class="slide"><h1>16 Options</h1><h2 class="byline">12.5% Nonsense</h2></div><div class="slide"><pre><code class="language-ruby">Drink.new(beverage: "cappuchino",
-          sugar:    true,
-          milk:     false)
-</code></pre></div><div class="slide"><pre><code class="language-typescript">function makeCoffee(beverage: beverage,
+</code></pre></div><div class="slide"><img height="90%" src="images/08-espresso-options-invalid.png" /></div><div class="slide"><h1>16 Options</h1><h2 class="byline">12.5% Nonsense</h2></div><div class="slide"><pre><code class="language-typescript">function makeCoffee(beverage: beverage,
                     milk:     boolean,
                     sugar:    boolean) {
 
-    if ( beverage == "cappuchino"
-        && milk == false) {
+    if ( beverage == "cappuchino" && !milk ) {
         throw "Nonsense";
     } else {
         return {beverage: beverage,
@@ -83,8 +79,7 @@ type drink =
 </code></pre><pre><code class="language-typescript fade">                    milk:     boolean,
 </code></pre><pre><code class="language-typescript fade">                    sugar:    boolean) {
 </code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript show">    if ( beverage == "cappuchino"
-</code></pre><pre><code class="language-typescript show">        && milk == false) {
+</code></pre><pre><code class="language-typescript show">    if ( beverage == "cappuchino" && !milk ) {
 </code></pre><pre><code class="language-typescript fade">        throw "Nonsense";
 </code></pre><pre><code class="language-typescript fade">    } else {
 </code></pre><pre><code class="language-typescript fade">        return {beverage: beverage,
@@ -93,16 +88,27 @@ type drink =
 </code></pre><pre><code class="language-typescript fade">    }
 </code></pre><pre><code class="language-typescript fade">
 </code></pre><pre><code class="language-typescript fade">}
-</code></pre></div><div class="slide"><img height="90%" src="images/05-make-coffee-constructor.png" /></div><div class="slide"><pre><code class="language-typescript">type food = "pancakes";
+</code></pre></div><div class="slide"><img height="90%" src="images/05-make-coffee-constructor.png" /></div><div class="slide"><pre><code class="language-ruby">Drink.new(beverage: "cappuchino",
+          sugar:    true,
+          milk:     false)
+</code></pre></div><div class="slide"><pre><code class="language-ruby">class Drink
+  def initialize(beverage: , sugar:, milk: )
+    if beverage == :cappuchino && !milk
+      raise "Nonsense"
+    end
+
+    @beverage = beverage
+    @sugar    = sugar
+    @milk     = milk
+  end
+end
+</code></pre></div><div class="slide"><pre><code class="language-typescript">type food = "pancakes";
 
 type drink
     = {beverage: "batch_brew", milk: boolean, sugar: boolean}
     | {beverage: "espresso",   milk: boolean, sugar: boolean}
     | {beverage: "cappuchino",                sugar: boolean}
     | {beverage: "tea",        milk: boolean, sugar: boolean};
-
-type order_item = food | drink;
-type order      = order_item[];
 </code></pre></div><div class="slide"><pre><code class="language-typescript fade">type food = "pancakes";
 </code></pre><pre><code class="language-typescript fade">
 </code></pre><pre><code class="language-typescript fade">type drink
@@ -110,9 +116,6 @@ type order      = order_item[];
 </code></pre><pre><code class="language-typescript fade">    | {beverage: "espresso",   milk: boolean, sugar: boolean}
 </code></pre><pre><code class="language-typescript show">    | {beverage: "cappuchino",                sugar: boolean}
 </code></pre><pre><code class="language-typescript fade">    | {beverage: "tea",        milk: boolean, sugar: boolean};
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">type order_item = food | drink;
-</code></pre><pre><code class="language-typescript fade">type order      = order_item[];
 </code></pre></div><div class="slide"><img height="90%" src="images/09-nonsense-removed.png" /></div><div class="slide"><h1>14 Options</h1><h2 class="byline">No nonsense</h2></div><div class="slide"><pre><code class="language-ruby">class Cappuchino
   def initialize(sugar: )
     @sugar = sugar
@@ -182,22 +185,22 @@ NoMethodError (undefined method 'milk' for
     #&lt;Cappuchino:0x000000014e8e6620 @sugar=false&gt;)
 </code></pre></div><div class="slide"><pre><code class="language-typescript show">var user_role: string;
 </code></pre><pre><code class="language-typescript show">
-</code></pre><pre><code class="language-typescript show">user_role = "admin";               // This is fine
-</code></pre><pre><code class="language-typescript show">user_role = "deep_fried_football"; // This is nonsense
+</code></pre><pre><code class="language-typescript show">user_role = "admin";                // This is fine
+</code></pre><pre><code class="language-typescript show">user_role = "milk_free_cappuccino"; // This is nonsense
 </code></pre><pre><code class="language-typescript fade">
 </code></pre><pre><code class="language-typescript fade">var user_role: "end_user" | "agent" | "admin";
 </code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">user_role = "admin";               // This is fine
-</code></pre><pre><code class="language-typescript fade">user_role = "deep_fried_football"; // This won't compile
+</code></pre><pre><code class="language-typescript fade">user_role = "admin";                // This is fine
+</code></pre><pre><code class="language-typescript fade">user_role = "milk_free_cappuccino"; // This won't compile
 </code></pre></div><div class="slide"><pre><code class="language-typescript fade">var user_role: string;
 </code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">user_role = "admin";               // This is fine
-</code></pre><pre><code class="language-typescript fade">user_role = "deep_fried_football"; // This is nonsense
+</code></pre><pre><code class="language-typescript fade">user_role = "admin";                // This is fine
+</code></pre><pre><code class="language-typescript fade">user_role = "milk_free_cappuccino"; // This is nonsense
 </code></pre><pre><code class="language-typescript fade">
 </code></pre><pre><code class="language-typescript show">var user_role: "end_user" | "agent" | "admin";
 </code></pre><pre><code class="language-typescript show">
-</code></pre><pre><code class="language-typescript show">user_role = "admin";               // This is fine
-</code></pre><pre><code class="language-typescript show">user_role = "deep_fried_football"; // This won't compile
+</code></pre><pre><code class="language-typescript show">user_role = "admin";                // This is fine
+</code></pre><pre><code class="language-typescript show">user_role = "milk_free_cappuccino"; // This won't compile
 </code></pre></div><div class="slide"><pre><code class="language-typescript show">var years_of_experience: number;
 </code></pre><pre><code class="language-typescript show">
 </code></pre><pre><code class="language-typescript show">years_of_experience = 5;    // This is fine
@@ -397,4 +400,4 @@ NoMethodError (undefined method 'milk' for
 var parcel: {id:              number,
              product_id:      number,
              delivery_status: delivery_status};
-</code></pre></div><script src="js/highlight.min.js"></script><script>hljs.highlightAll();</script><script src="js/slideshow.js"></script></body></html>
+</code></pre></div><div class="slide"><h1>Data types are<br />countable</h1></div><div class="slide"><h1>Code complexity is<br />measurable</h1></div><div class="slide"><h1>Simple data means<br />simple code</h1></div><div class="slide"><h1>Simple data means<br />less bugs</h1></div><script src="js/highlight.min.js"></script><script>hljs.highlightAll();</script><script src="js/slideshow.js"></script></body></html>
