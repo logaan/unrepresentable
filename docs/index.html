@@ -116,74 +116,23 @@ type drink
 </code></pre><pre><code class="language-typescript fade">    | {beverage: "espresso",   milk: boolean, sugar: boolean}
 </code></pre><pre><code class="language-typescript show">    | {beverage: "cappuchino",                sugar: boolean}
 </code></pre><pre><code class="language-typescript fade">    | {beverage: "tea",        milk: boolean, sugar: boolean};
-</code></pre></div><div class="slide"><img height="90%" src="images/09-nonsense-removed.png" /></div><div class="slide"><h1>14 Options</h1><h2 class="byline">No nonsense</h2></div><div class="slide"><pre><code class="language-ruby">class Cappuchino
+</code></pre></div><div class="slide"><img height="90%" src="images/09-nonsense-removed.png" /></div><div class="slide"><h1>14 Options</h1><h2 class="byline">No nonsense</h2></div><div class="slide"><pre><code class="language-ruby">class Drink
+  def initialize(beverage: , sugar:, milk: )
+    if beverage == :cappuchino && !milk
+      raise "Nonsense"
+    end
+
+    @beverage = beverage
+    @sugar    = sugar
+    @milk     = milk
+  end
+end
+</code></pre></div><div class="slide"><pre><code class="language-ruby">class Cappuchino
   def initialize(sugar: )
     @sugar = sugar
   end
 end
-</code></pre></div><div class="slide"><pre><code class="language-ruby">irb(main):007:0> Cappuchino.new(sugar: true, milk: false)
-
-Traceback (most recent call last):
-6: from /usr/bin/irb:23:in &lt;main&gt;
-5: from /usr/bin/irb:23:in &lt;load&gt;
-4: from /Library/Ruby/Gems/2.6.0/gems/irb-1.0.0/exe/irb:11:in
-        &lt;top (required)&gt;
-3: from (irb):7
-2: from (irb):7:in 'new'
-1: from (irb):2:in 'initialize'
-ArgumentError (unknown keyword: milk)
-</code></pre></div><div class="slide"><pre><code class="language-ruby show">def safe_for_lactose_intollerant_customers?(drink)
-</code></pre><pre><code class="language-ruby show">  return drink.milk == false
-</code></pre><pre><code class="language-ruby show">end
-</code></pre><pre><code class="language-ruby fade">
-</code></pre><pre><code class="language-ruby fade">irb(main):015:0>
-</code></pre><pre><code class="language-ruby fade">    safe_for_lactose_intollerant_customers?(
-</code></pre><pre><code class="language-ruby fade">      Cappuchino.new(sugar: false))
-</code></pre><pre><code class="language-ruby fade">
-</code></pre><pre><code class="language-ruby fade">Traceback (most recent call last):
-</code></pre><pre><code class="language-ruby fade">5: from /usr/bin/irb:23:in '&lt;main&gt;'
-</code></pre><pre><code class="language-ruby fade">4: from /usr/bin/irb:23:in 'load'
-</code></pre><pre><code class="language-ruby fade">3: from /Library/Ruby/Gems/2.6.0/gems/irb-1.0.0/exe/irb:11:in
-</code></pre><pre><code class="language-ruby fade">   '&lt;top (required)&gt;'
-</code></pre><pre><code class="language-ruby fade">2: from (irb):15
-</code></pre><pre><code class="language-ruby fade">1: from (irb):13:in 'safe_for_lactose_intollerant_customer?'
-</code></pre><pre><code class="language-ruby fade">NoMethodError (undefined method 'milk' for
-</code></pre><pre><code class="language-ruby fade">    #&lt;Cappuchino:0x000000014e8e6620 @sugar=false&gt;)
-</code></pre></div><div class="slide"><pre><code class="language-ruby fade">def safe_for_lactose_intollerant_customers?(drink)
-</code></pre><pre><code class="language-ruby fade">  return drink.milk == false
-</code></pre><pre><code class="language-ruby fade">end
-</code></pre><pre><code class="language-ruby fade">
-</code></pre><pre><code class="language-ruby show">irb(main):015:0>
-</code></pre><pre><code class="language-ruby show">    safe_for_lactose_intollerant_customers?(
-</code></pre><pre><code class="language-ruby show">      Cappuchino.new(sugar: false))
-</code></pre><pre><code class="language-ruby fade">
-</code></pre><pre><code class="language-ruby fade">Traceback (most recent call last):
-</code></pre><pre><code class="language-ruby fade">5: from /usr/bin/irb:23:in '&lt;main&gt;'
-</code></pre><pre><code class="language-ruby fade">4: from /usr/bin/irb:23:in 'load'
-</code></pre><pre><code class="language-ruby fade">3: from /Library/Ruby/Gems/2.6.0/gems/irb-1.0.0/exe/irb:11:in
-</code></pre><pre><code class="language-ruby fade">   '&lt;top (required)&gt;'
-</code></pre><pre><code class="language-ruby fade">2: from (irb):15
-</code></pre><pre><code class="language-ruby fade">1: from (irb):13:in 'safe_for_lactose_intollerant_customer?'
-</code></pre><pre><code class="language-ruby fade">NoMethodError (undefined method 'milk' for
-</code></pre><pre><code class="language-ruby fade">    #&lt;Cappuchino:0x000000014e8e6620 @sugar=false&gt;)
-</code></pre></div><div class="slide"><pre><code class="language-ruby">def safe_for_lactose_intollerant_customers?(drink)
-  return drink.milk == false
-end
-
-irb(main):015:0>
-    safe_for_lactose_intollerant_customers?(
-      Cappuchino.new(sugar: false))
-
-Traceback (most recent call last):
-5: from /usr/bin/irb:23:in '&lt;main&gt;'
-4: from /usr/bin/irb:23:in 'load'
-3: from /Library/Ruby/Gems/2.6.0/gems/irb-1.0.0/exe/irb:11:in
-   '&lt;top (required)&gt;'
-2: from (irb):15
-1: from (irb):13:in 'safe_for_lactose_intollerant_customer?'
-NoMethodError (undefined method 'milk' for
-    #&lt;Cappuchino:0x000000014e8e6620 @sugar=false&gt;)
-</code></pre></div><div class="slide"><pre><code class="language-typescript show">var user_role: string;
+</code></pre></div><div class="slide"><h1>Sloppy types</h1><pre><code class="language-typescript show">var user_role: string;
 </code></pre><pre><code class="language-typescript show">
 </code></pre><pre><code class="language-typescript show">user_role = "admin";                // This is fine
 </code></pre><pre><code class="language-typescript show">user_role = "milk_free_cappuccino"; // This is nonsense
@@ -192,7 +141,7 @@ NoMethodError (undefined method 'milk' for
 </code></pre><pre><code class="language-typescript fade">
 </code></pre><pre><code class="language-typescript fade">user_role = "admin";                // This is fine
 </code></pre><pre><code class="language-typescript fade">user_role = "milk_free_cappuccino"; // This won't compile
-</code></pre></div><div class="slide"><pre><code class="language-typescript fade">var user_role: string;
+</code></pre></div><div class="slide"><h1>Sloppy types</h1><pre><code class="language-typescript fade">var user_role: string;
 </code></pre><pre><code class="language-typescript fade">
 </code></pre><pre><code class="language-typescript fade">user_role = "admin";                // This is fine
 </code></pre><pre><code class="language-typescript fade">user_role = "milk_free_cappuccino"; // This is nonsense

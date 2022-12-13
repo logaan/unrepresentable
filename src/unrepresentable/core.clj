@@ -139,28 +139,18 @@
 
    (title "14 Options" "No nonsense")
 
+   (ruby "17-make-coffee-constructor"
+         [[]])
 
    (ruby "08-class-cappuchino"
          [[]])
 
-   (ruby "09-irb-unknown-keyword-milk"
-         [[]])
-
-   ;; Add a new slide here that shows the problem with allowing milk in the
-   ;; order
-
-   (ruby "10-irb-safe-for-lactose-intollerant-customer"
-         [(range 1 4)
-          (range 5 8)
-          []])
+   ;; Real examples
 
    (typescript "11-user-role"
                [(range 1 5)
-                (range 6 10)])
-
-   (typescript "12-years-of-experience"
-               [(range 1 8)
-                (range 9 18)])
+                (range 6 10)]
+               "Sloppy types")
 
    (typescript "13-soft-delete"
                [(range 1 4)
