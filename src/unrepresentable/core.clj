@@ -15,21 +15,25 @@
      [:script "hljs.highlightAll();"]
      [:script {:src "js/slideshow.js"}]]]))
 
-(defn title [name byline]
+(defn slide [& content]
   [:div {:class "slide"}
+   content])
+
+(defn title [name byline]
+  (slide
    [:h1 name]
-   [:h2 {:class "byline"} byline]])
+   [:h2 {:class "byline"} byline]))
 
 (defn image [filename]
-  [:div {:class "slide"}
-   [:img {:height "90%" :src (str "images/" filename)}]])
+  (slide
+   [:img {:height "90%" :src (str "images/" filename)}]))
 
 (defn code [language filename fades]
   (for [lines fades]
     (let [lines (set lines)
           path  (.getPath (io/resource (str "code/" filename)))
           code  (slurp path)]
-      [:div {:class "slide"}
+      (slide
        (if (empty? lines)
 
          [:pre
@@ -40,7 +44,7 @@
            [:pre
             [:code {:class (str "language-" language " "
                                 (if (lines (inc n)) "show" "fade"))}
-             line "\n"]]))])))
+             line "\n"]]))))))
 
 (defn typescript [file fades]
   (code "typescript" (str file ".ts") fades))
@@ -63,22 +67,28 @@
    (typescript "01-pancakes"
                [[1]
                 (range 3 6)
-                (range 3 11)
-                [12 13]
+                (range 7 11)
+                ;; Ask the audience how many types of food we have.
+                ;; Then how many types of drink.
+                ;; And finally how many types of drink
                 []])
 
-   (typescript "02-orders"
-               [(range 1 6)
-                (range 7 11)
-                []])
+   (image "06-tea-batch-brew-options.png")
 
    (image "04-espresso-machine.jpg")
 
    (typescript "03-espresso"
                [[5 6]])
 
+   (image "07-espresso-options.png")
+
    (typescript "04-cappuchino-no-milk"
-               [[]])
+               [[]
+                [4 5]])
+
+   (image "08-espresso-options-invalid.png")
+
+   (title "16 Options" "12.5% Nonsense")
 
    (typescript "05-make-coffee-constructor"
                [[]
@@ -90,6 +100,12 @@
                [[]
                 [6]])
 
+   (image "09-nonsense-removed.png")
+
+   (title "14 Options" "No nonsense")
+
+   ;; This all applies outside of types languages
+
    (ruby "07-ruby-new-drink"
          [[]])
 
@@ -98,6 +114,9 @@
 
    (ruby "09-irb-unknown-keyword-milk"
          [[]])
+
+   ;; Add a new slide here that shows the problem with allowing milk in the
+   ;; order
 
    (ruby "10-irb-safe-for-lactose-intollerant-customer"
          [(range 1 4)

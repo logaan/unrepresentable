@@ -8,9 +8,6 @@
 </code></pre><pre><code class="language-typescript fade">    {beverage: beverage,
 </code></pre><pre><code class="language-typescript fade">     milk:     boolean,
 </code></pre><pre><code class="language-typescript fade">     sugar:    boolean};
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">type order_item = food | drink;
-</code></pre><pre><code class="language-typescript fade">type order      = order_item[];
 </code></pre></div><div class="slide"><pre><code class="language-typescript fade">type food = "pancakes";
 </code></pre><pre><code class="language-typescript fade">
 </code></pre><pre><code class="language-typescript show">type beverage
@@ -21,35 +18,16 @@
 </code></pre><pre><code class="language-typescript fade">    {beverage: beverage,
 </code></pre><pre><code class="language-typescript fade">     milk:     boolean,
 </code></pre><pre><code class="language-typescript fade">     sugar:    boolean};
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">type order_item = food | drink;
-</code></pre><pre><code class="language-typescript fade">type order      = order_item[];
-</code></pre></div><div class="slide"><pre><code class="language-typescript fade">type food = "pancakes";
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript show">type beverage
-</code></pre><pre><code class="language-typescript show">    = "tea"
-</code></pre><pre><code class="language-typescript show">    | "batch_brew";
-</code></pre><pre><code class="language-typescript show">
-</code></pre><pre><code class="language-typescript show">type drink =
-</code></pre><pre><code class="language-typescript show">    {beverage: beverage,
-</code></pre><pre><code class="language-typescript show">     milk:     boolean,
-</code></pre><pre><code class="language-typescript show">     sugar:    boolean};
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">type order_item = food | drink;
-</code></pre><pre><code class="language-typescript fade">type order      = order_item[];
 </code></pre></div><div class="slide"><pre><code class="language-typescript fade">type food = "pancakes";
 </code></pre><pre><code class="language-typescript fade">
 </code></pre><pre><code class="language-typescript fade">type beverage
 </code></pre><pre><code class="language-typescript fade">    = "tea"
 </code></pre><pre><code class="language-typescript fade">    | "batch_brew";
 </code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">type drink =
-</code></pre><pre><code class="language-typescript fade">    {beverage: beverage,
-</code></pre><pre><code class="language-typescript fade">     milk:     boolean,
-</code></pre><pre><code class="language-typescript fade">     sugar:    boolean};
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript show">type order_item = food | drink;
-</code></pre><pre><code class="language-typescript show">type order      = order_item[];
+</code></pre><pre><code class="language-typescript show">type drink =
+</code></pre><pre><code class="language-typescript show">    {beverage: beverage,
+</code></pre><pre><code class="language-typescript show">     milk:     boolean,
+</code></pre><pre><code class="language-typescript show">     sugar:    boolean};
 </code></pre></div><div class="slide"><pre><code class="language-typescript">type food = "pancakes";
 
 type beverage
@@ -60,40 +38,7 @@ type drink =
     {beverage: beverage,
      milk:     boolean,
      sugar:    boolean};
-
-type order_item = food | drink;
-type order      = order_item[];
-</code></pre></div><div class="slide"><pre><code class="language-typescript show">var logans:order =
-</code></pre><pre><code class="language-typescript show">    ["pancakes",
-</code></pre><pre><code class="language-typescript show">     {beverage: "tea",
-</code></pre><pre><code class="language-typescript show">      milk:     false,
-</code></pre><pre><code class="language-typescript show">      sugar:    true}];
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">var pei_shis:order =
-</code></pre><pre><code class="language-typescript fade">    [{beverage: "batch_brew",
-</code></pre><pre><code class="language-typescript fade">      milk:     true,
-</code></pre><pre><code class="language-typescript fade">      sugar:    false}];
-</code></pre></div><div class="slide"><pre><code class="language-typescript fade">var logans:order =
-</code></pre><pre><code class="language-typescript fade">    ["pancakes",
-</code></pre><pre><code class="language-typescript fade">     {beverage: "tea",
-</code></pre><pre><code class="language-typescript fade">      milk:     false,
-</code></pre><pre><code class="language-typescript fade">      sugar:    true}];
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript show">var pei_shis:order =
-</code></pre><pre><code class="language-typescript show">    [{beverage: "batch_brew",
-</code></pre><pre><code class="language-typescript show">      milk:     true,
-</code></pre><pre><code class="language-typescript show">      sugar:    false}];
-</code></pre></div><div class="slide"><pre><code class="language-typescript">var logans:order =
-    ["pancakes",
-     {beverage: "tea",
-      milk:     false,
-      sugar:    true}];
-
-var pei_shis:order =
-    [{beverage: "batch_brew",
-      milk:     true,
-      sugar:    false}];
-</code></pre></div><div class="slide"><img height="90%" src="images/04-espresso-machine.jpg" /></div><div class="slide"><pre><code class="language-typescript fade">type food = "pancakes";
+</code></pre></div><div class="slide"><img height="90%" src="images/06-tea-batch-brew-options.png" /></div><div class="slide"><img height="90%" src="images/04-espresso-machine.jpg" /></div><div class="slide"><pre><code class="language-typescript fade">type food = "pancakes";
 </code></pre><pre><code class="language-typescript fade">
 </code></pre><pre><code class="language-typescript fade">type beverage
 </code></pre><pre><code class="language-typescript fade">    = "tea"
@@ -105,14 +50,21 @@ var pei_shis:order =
 </code></pre><pre><code class="language-typescript fade">    {beverage: beverage,
 </code></pre><pre><code class="language-typescript fade">     milk:     boolean,
 </code></pre><pre><code class="language-typescript fade">     sugar:    boolean};
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">type order_item = food | drink;
-</code></pre><pre><code class="language-typescript fade">type order      = order_item[];
-</code></pre></div><div class="slide"><pre><code class="language-typescript">var pancakes_and_nonsense:order =
+</code></pre></div><div class="slide"><img height="90%" src="images/07-espresso-options.png" /></div><div class="slide"><pre><code class="language-typescript">var pancakes_and_nonsense =
     ["pancakes",
+
      {beverage: "cappuchino",
       milk:     false,
       sugar:    false}];
+</code></pre></div><div class="slide"><pre><code class="language-typescript fade">var pancakes_and_nonsense =
+</code></pre><pre><code class="language-typescript fade">    ["pancakes",
+</code></pre><pre><code class="language-typescript fade">
+</code></pre><pre><code class="language-typescript show">     {beverage: "cappuchino",
+</code></pre><pre><code class="language-typescript show">      milk:     false,
+</code></pre><pre><code class="language-typescript fade">      sugar:    false}];
+</code></pre></div><div class="slide"><img height="90%" src="images/08-espresso-options-invalid.png" /></div><div class="slide"><h1>16 Options</h1><h2 class="byline">12.5% Nonsense</h2></div><div class="slide"><pre><code class="language-ruby">Drink.new(beverage: "cappuchino",
+          sugar:    true,
+          milk:     false)
 </code></pre></div><div class="slide"><pre><code class="language-typescript">function makeCoffee(beverage: beverage,
                     milk:     boolean,
                     sugar:    boolean) {
@@ -161,10 +113,7 @@ type order      = order_item[];
 </code></pre><pre><code class="language-typescript fade">
 </code></pre><pre><code class="language-typescript fade">type order_item = food | drink;
 </code></pre><pre><code class="language-typescript fade">type order      = order_item[];
-</code></pre></div><div class="slide"><pre><code class="language-ruby">Drink.new(beverage: "cappuchino",
-          sugar:    true,
-          milk:     false)
-</code></pre></div><div class="slide"><pre><code class="language-ruby">class Cappuchino
+</code></pre></div><div class="slide"><img height="90%" src="images/09-nonsense-removed.png" /></div><div class="slide"><h1>14 Options</h1><h2 class="byline">No nonsense</h2></div><div class="slide"><pre><code class="language-ruby">class Cappuchino
   def initialize(sugar: )
     @sugar = sugar
   end

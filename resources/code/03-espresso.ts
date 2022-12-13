@@ -10,6 +10,3 @@ type drink =
     {beverage: beverage,
      milk:     boolean,
      sugar:    boolean};
-
-type order_item = food | drink;
-type order      = order_item[];
