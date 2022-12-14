@@ -1,4 +1,24 @@
-<html><head><link href="css/hybrid.min.css" rel="stylesheet" /><link href="css/slideshow.css" rel="stylesheet" /></head><body><div class="slide"><h1>Pancakes with<br />a side of nonsense</h1><h2 class="byline">Logan Campbell</h2></div><div class="slide"><img height="90%" src="images/01-diner.jpg" /></div><div class="slide"><img height="90%" src="images/02-pancakes.jpg" /></div><div class="slide"><img height="90%" src="images/03-drip-coffee.jpg" /></div><div class="slide"><pre><code class="language-typescript show">type food = "pancakes";
+<html><head><link href="css/hybrid.min.css" rel="stylesheet" /><link href="css/slideshow.css" rel="stylesheet" /></head><body><div class="slide"><h1>Pancakes with<br />a side of nonsense</h1><h2 class="byline">Logan Campbell</h2></div><div class="slide"><pre><code class="language-typescript">type food = "pancakes";
+
+type beverage
+    = "tea"
+    | "batch_brew";
+
+type drink =
+    {beverage: beverage,
+     milk:     boolean,
+     sugar:    boolean};
+</code></pre></div><div class="slide"><img height="90%" src="images/14-slide-code.png" /></div><div class="slide"><img height="90%" src="images/16-sketch-bulk-export.jpg" /></div><div class="slide"><pre><code class="language-typescript fade">type food = "pancakes";
+</code></pre><pre><code class="language-typescript fade">
+</code></pre><pre><code class="language-typescript show">type beverage
+</code></pre><pre><code class="language-typescript show">    = "tea"
+</code></pre><pre><code class="language-typescript show">    | "batch_brew";
+</code></pre><pre><code class="language-typescript fade">
+</code></pre><pre><code class="language-typescript fade">type drink =
+</code></pre><pre><code class="language-typescript fade">    {beverage: beverage,
+</code></pre><pre><code class="language-typescript fade">     milk:     boolean,
+</code></pre><pre><code class="language-typescript fade">     sugar:    boolean};
+</code></pre></div><div class="slide"><img height="90%" src="images/15-typescript-example.png" /></div><div class="slide"><img height="90%" src="images/18-keynote-next-slide.jpg" /></div><div class="slide"><img height="90%" src="images/19-keynote-copy-paste.jpg" /></div><div class="slide"><img height="90%" src="images/17-tv-photo.jpg" /></div><div class="slide"><h1>Pancakes with<br />a side of nonsense</h1><h2 class="byline">Logan Campbell</h2></div><div class="slide"><img height="90%" src="images/01-diner.jpg" /></div><div class="slide"><img height="90%" src="images/02-pancakes.jpg" /></div><div class="slide"><img height="90%" src="images/13-tea.jpg" /></div><div class="slide"><img height="90%" src="images/03-drip-coffee.jpg" /></div><div class="slide"><pre><code class="language-typescript show">type food = "pancakes";
 </code></pre><pre><code class="language-typescript fade">
 </code></pre><pre><code class="language-typescript fade">type beverage
 </code></pre><pre><code class="language-typescript fade">    = "tea"
@@ -320,4 +340,77 @@ end
        shipped:   Date,
        delivered: Date,
        returned:  Date};
-</code></pre></div><div class="slide"><h1>Data types are<br />countable</h1></div><div class="slide"><h1>Code complexity is<br />measurable</h1></div><div class="slide"><h1>Simple data means<br />simple code</h1></div><div class="slide"><h1>Simple data means<br />less bugs</h1></div><div class="slide"><h1>Simple data means<br />less to think about</h1></div><div class="slide"><h1>Thank you</h1></div><div class="slide"><h1>Questions?</h1></div><script src="js/highlight.min.js"></script><script>hljs.highlightAll();</script><script src="js/slideshow.js"></script></body></html>
+</code></pre></div><div class="slide"><pre><code class="language-typescript">var parcel: {id:                     number,          //   1
+             state:                  string,          // * 6
+             shipped:                Date    | null,  // * 2
+             lost_during_delivery:   boolean | null,  // * 3
+             delivered:              Date    | null,  // * 2
+             returned:               Date    | null,  // * 2
+             dead_on_arrival_return: boolean | null,  // * 3
+             change_of_mind_return:  boolean | null}; // * 3
+                                                      // = 1080
+</code></pre></div><div class="slide"><h1>1080 options<br />6 valid states</h1><h2 class="byline">99.4% Nonsense</h2></div><div class="slide"><h1>Data types are<br />countable</h1></div><div class="slide"><h1>Code complexity is<br />measurable</h1></div><div class="slide"><h1>Simple data means<br />simple code</h1></div><div class="slide"><h1>Simple data means<br />less bugs</h1></div><div class="slide"><h1>Simple data means<br />less to think about</h1></div><div class="slide"><h1>Thank you</h1></div><div class="slide"><h1>Questions?</h1></div><div class="slide"><img height="90%" src="images/22-set.png" /></div><div class="slide"><img height="90%" src="images/20-polygon-disjoint-union.png" /></div><div class="slide"><img height="90%" src="images/21-cartesian-product.png" /></div><div class="slide"><pre><code class="language-typescript show">// food = 1
+</code></pre><pre><code class="language-typescript show">type food = "pancakes";
+</code></pre><pre><code class="language-typescript fade">
+</code></pre><pre><code class="language-typescript fade">// beverage = 1 + 1
+</code></pre><pre><code class="language-typescript fade">// beverage = 2
+</code></pre><pre><code class="language-typescript fade">type beverage
+</code></pre><pre><code class="language-typescript fade">    = "tea"
+</code></pre><pre><code class="language-typescript fade">    | "batch_brew";
+</code></pre><pre><code class="language-typescript fade">
+</code></pre><pre><code class="language-typescript fade">// drink = beverage * milk * sugar
+</code></pre><pre><code class="language-typescript fade">// drink = 2 * 2 * 2
+</code></pre><pre><code class="language-typescript fade">// drink = 8
+</code></pre><pre><code class="language-typescript fade">type drink =
+</code></pre><pre><code class="language-typescript fade">    {beverage: beverage,
+</code></pre><pre><code class="language-typescript fade">     milk:     boolean,
+</code></pre><pre><code class="language-typescript fade">     sugar:    boolean};
+</code></pre></div><div class="slide"><pre><code class="language-typescript fade">// food = 1
+</code></pre><pre><code class="language-typescript fade">type food = "pancakes";
+</code></pre><pre><code class="language-typescript fade">
+</code></pre><pre><code class="language-typescript show">// beverage = 1 + 1
+</code></pre><pre><code class="language-typescript show">// beverage = 2
+</code></pre><pre><code class="language-typescript show">type beverage
+</code></pre><pre><code class="language-typescript show">    = "tea"
+</code></pre><pre><code class="language-typescript show">    | "batch_brew";
+</code></pre><pre><code class="language-typescript fade">
+</code></pre><pre><code class="language-typescript fade">// drink = beverage * milk * sugar
+</code></pre><pre><code class="language-typescript fade">// drink = 2 * 2 * 2
+</code></pre><pre><code class="language-typescript fade">// drink = 8
+</code></pre><pre><code class="language-typescript fade">type drink =
+</code></pre><pre><code class="language-typescript fade">    {beverage: beverage,
+</code></pre><pre><code class="language-typescript fade">     milk:     boolean,
+</code></pre><pre><code class="language-typescript fade">     sugar:    boolean};
+</code></pre></div><div class="slide"><pre><code class="language-typescript fade">// food = 1
+</code></pre><pre><code class="language-typescript fade">type food = "pancakes";
+</code></pre><pre><code class="language-typescript fade">
+</code></pre><pre><code class="language-typescript fade">// beverage = 1 + 1
+</code></pre><pre><code class="language-typescript fade">// beverage = 2
+</code></pre><pre><code class="language-typescript fade">type beverage
+</code></pre><pre><code class="language-typescript fade">    = "tea"
+</code></pre><pre><code class="language-typescript fade">    | "batch_brew";
+</code></pre><pre><code class="language-typescript fade">
+</code></pre><pre><code class="language-typescript show">// drink = beverage * milk * sugar
+</code></pre><pre><code class="language-typescript show">// drink = 2 * 2 * 2
+</code></pre><pre><code class="language-typescript show">// drink = 8
+</code></pre><pre><code class="language-typescript show">type drink =
+</code></pre><pre><code class="language-typescript show">    {beverage: beverage,
+</code></pre><pre><code class="language-typescript show">     milk:     boolean,
+</code></pre><pre><code class="language-typescript show">     sugar:    boolean};
+</code></pre></div><div class="slide"><pre><code class="language-typescript">// food = 1
+type food = "pancakes";
+
+// beverage = 1 + 1
+// beverage = 2
+type beverage
+    = "tea"
+    | "batch_brew";
+
+// drink = beverage * milk * sugar
+// drink = 2 * 2 * 2
+// drink = 8
+type drink =
+    {beverage: beverage,
+     milk:     boolean,
+     sugar:    boolean};
+</code></pre></div><div class="slide"><h1>Thank you</h1></div><script src="js/highlight.min.js"></script><script>hljs.highlightAll();</script><script src="js/slideshow.js"></script></body></html>
