@@ -28,3 +28,11 @@ document.body.onkeydown = function(e) {
         console.log("e.code", e.code, e);
     }
 };
+
+function displayTime() {
+    const d = new Date();
+    const formattedTime = d.toLocaleTimeString('en-AU', {timeStyle: "short"});
+    currentTime.innerHTML = formattedTime;
+}
+setInterval(displayTime, 1000);
+window.addEventListener('load', displayTime);

@@ -34,3 +34,7 @@ iframe {
     width: 40vw;
     margin: 1em;
 }
+
+#currentTime {
+    text-align: center;
+}
