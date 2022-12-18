@@ -28,3 +28,9 @@ body {
 .fade {
     opacity: 0.3;
 }
+
+iframe {
+    height: 22vw;
+    width: 40vw;
+    margin: 1em;
+}

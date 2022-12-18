@@ -13,6 +13,7 @@
      slides
      [:script {:src "js/highlight.min.js"}]
      [:script "hljs.highlightAll();"]
+     [:script {:src "js/common.js"}]
      [:script {:src "js/slideshow.js"}]]]))
 
 (defn slide [& content]
@@ -216,12 +217,20 @@
    (title '("Simple data means" [:br] "less bugs"))
    (title '("Simple data means" [:br] "less to think about"))
 
+   (slide)
+
    ;; TODO: User interfaces
+   (image "23-user-interfaces.png")
 
    ;; TODO: Code club
+   (title "#mel-code-club")
+   (image "23-toy-robot.png")
 
    (title "Thank you")
    (title "Questions?")
+
+   ;; Cyclomatic complexity
+   (image "24-cyclomatic-complexity.png")
 
    ;; Algebraic data types
    (image "22-set.png")
