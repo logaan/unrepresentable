@@ -16,12 +16,12 @@ function openRemote() {
 window.addEventListener('hashchange', showSlideFromHash);
 window.addEventListener('load', showSlideFromHash);
 
-document.body.onkeyup = function(e) {
+document.body.onkeypress = function(e) {
     if (e.code == "Space" || e.code == "ArrowRight") {
         nextSlide();
     } else if (e.code == "ArrowLeft") {
         previousSlide();
-    } else if (e.code == "KeyR" && e.shiftKey) {
+    } else if (e.code == "KeyR") {
         openRemote();
     }
 };

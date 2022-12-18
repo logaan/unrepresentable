@@ -17,7 +17,7 @@ function setPresentationSlideFromHash() {
 window.addEventListener('hashchange', setPresentationSlideFromHash);
 window.addEventListener('load', setPresentationSlideFromHash);
 
-document.body.onkeyup = function(e) {
+document.body.onkeypress = function(e) {
     if (e.code == "Space" || e.code == "ArrowRight") {
         nextSlide();
     } else if (e.code == "ArrowLeft") {
