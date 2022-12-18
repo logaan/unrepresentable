@@ -17,10 +17,14 @@ function setPresentationSlideFromHash() {
 window.addEventListener('hashchange', setPresentationSlideFromHash);
 window.addEventListener('load', setPresentationSlideFromHash);
 
-document.body.onkeypress = function(e) {
+document.body.onkeydown = function(e) {
     if (e.code == "Space" || e.code == "ArrowRight") {
         nextSlide();
     } else if (e.code == "ArrowLeft") {
         previousSlide();
+    } else if (e.code == "Digit0") {
+        setPresentationSlide(0);
+    } else {
+        console.log("e.code", e.code, e);
     }
 };
