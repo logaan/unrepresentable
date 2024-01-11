@@ -1,34 +1,4 @@
-<html><head><link href="css/hybrid.min.css" rel="stylesheet" /><link href="css/slideshow.css" rel="stylesheet" /></head><body><div class="slide"><h1>Pancakes with<br />a side of nonsense</h1><h2 class="byline">Logan Campbell</h2></div><div class="slide"><pre><code class="language-typescript">type food = "pancakes";
-
-type beverage
-    = "tea"
-    | "batch_brew";
-
-type drink =
-    {beverage: beverage,
-     milk:     boolean,
-     sugar:    boolean};
-</code></pre></div><div class="slide"><img height="90%" src="images/14-slide-code.png" /></div><div class="slide"><img height="90%" src="images/16-sketch-bulk-export.jpg" /></div><div class="slide"><pre><code class="language-typescript fade">type food = "pancakes";
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript show">type beverage
-</code></pre><pre><code class="language-typescript show">    = "tea"
-</code></pre><pre><code class="language-typescript show">    | "batch_brew";
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">type drink =
-</code></pre><pre><code class="language-typescript fade">    {beverage: beverage,
-</code></pre><pre><code class="language-typescript fade">     milk:     boolean,
-</code></pre><pre><code class="language-typescript fade">     sugar:    boolean};
-</code></pre></div><div class="slide"><img height="90%" src="images/15-typescript-example.png" /></div><div class="slide"><img height="90%" src="images/18-keynote-next-slide.jpg" /></div><div class="slide"><img height="90%" src="images/19-keynote-copy-paste.jpg" /></div><div class="slide"><img height="90%" src="images/17-tv-photo.jpg" /></div><div class="slide"><h1>Pancakes with<br />a side of nonsense</h1><h2 class="byline">Logan Campbell</h2></div><div class="slide"><img height="90%" src="images/01-diner.jpg" /></div><div class="slide"><img height="90%" src="images/02-pancakes.jpg" /></div><div class="slide"><img height="90%" src="images/13-tea.jpg" /></div><div class="slide"><img height="90%" src="images/03-drip-coffee.jpg" /></div><div class="slide"><pre><code class="language-typescript show">type food = "pancakes";
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">type beverage
-</code></pre><pre><code class="language-typescript fade">    = "tea"
-</code></pre><pre><code class="language-typescript fade">    | "batch_brew";
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">type drink =
-</code></pre><pre><code class="language-typescript fade">    {beverage: beverage,
-</code></pre><pre><code class="language-typescript fade">     milk:     boolean,
-</code></pre><pre><code class="language-typescript fade">     sugar:    boolean};
-</code></pre></div><div class="slide"><pre><code class="language-typescript fade">type food = "pancakes";
+<html><head><link href="css/hybrid.min.css" rel="stylesheet" /><link href="css/slideshow.css" rel="stylesheet" /></head><body><div class="slide"><h1>Pancakes with<br />a side of nonsense</h1><h2 class="byline">Logan Campbell</h2></div><div class="slide"><img height="90%" src="images/16-sketch-bulk-export.jpg" /></div><div class="slide"><img height="90%" src="images/19-keynote-copy-paste.jpg" /></div><div class="slide"><pre><code class="language-typescript fade">type food = "pancakes";
 </code></pre><pre><code class="language-typescript fade">
 </code></pre><pre><code class="language-typescript show">type beverage
 </code></pre><pre><code class="language-typescript show">    = "tea"
@@ -48,28 +18,78 @@ type drink =
 </code></pre><pre><code class="language-typescript show">    {beverage: beverage,
 </code></pre><pre><code class="language-typescript show">     milk:     boolean,
 </code></pre><pre><code class="language-typescript show">     sugar:    boolean};
-</code></pre></div><div class="slide"><pre><code class="language-typescript">type food = "pancakes";
+</code></pre></div><div class="slide"><img height="90%" src="images/15-typescript-example.png" /></div><div class="slide"><img height="90%" src="images/14-slide-code.png" /></div><div class="slide"><img height="90%" src="images/18-keynote-next-slide.jpg" /></div><div class="slide"><h1>Pancakes with<br />a side of nonsense</h1><h2 class="byline">Logan Campbell</h2></div><div class="slide"><img height="90%" src="images/01-diner.jpg" /></div><div class="slide"><img height="90%" src="images/02-pancakes.jpg" /></div><div class="slide"><img height="90%" src="images/13-tea.jpg" /></div><div class="slide"><img height="90%" src="images/03-drip-coffee.jpg" /></div><div class="slide"><pre><code class="language-kotlin show">enum class Food {
+</code></pre><pre><code class="language-kotlin show">    PANCAKES
+</code></pre><pre><code class="language-kotlin show">}
+</code></pre><pre><code class="language-kotlin fade">
+</code></pre><pre><code class="language-kotlin fade">enum class Beverage {
+</code></pre><pre><code class="language-kotlin fade">    TEA,
+</code></pre><pre><code class="language-kotlin fade">    BATCH_BREW
+</code></pre><pre><code class="language-kotlin fade">}
+</code></pre><pre><code class="language-kotlin fade">
+</code></pre><pre><code class="language-kotlin fade">data class Drink(
+</code></pre><pre><code class="language-kotlin fade">  val beverage: Beverage,
+</code></pre><pre><code class="language-kotlin fade">  val milk:     Boolean,
+</code></pre><pre><code class="language-kotlin fade">  val sugar:    Boolean
+</code></pre><pre><code class="language-kotlin fade">)
+</code></pre></div><div class="slide"><pre><code class="language-kotlin fade">enum class Food {
+</code></pre><pre><code class="language-kotlin fade">    PANCAKES
+</code></pre><pre><code class="language-kotlin fade">}
+</code></pre><pre><code class="language-kotlin fade">
+</code></pre><pre><code class="language-kotlin show">enum class Beverage {
+</code></pre><pre><code class="language-kotlin show">    TEA,
+</code></pre><pre><code class="language-kotlin show">    BATCH_BREW
+</code></pre><pre><code class="language-kotlin show">}
+</code></pre><pre><code class="language-kotlin fade">
+</code></pre><pre><code class="language-kotlin fade">data class Drink(
+</code></pre><pre><code class="language-kotlin fade">  val beverage: Beverage,
+</code></pre><pre><code class="language-kotlin fade">  val milk:     Boolean,
+</code></pre><pre><code class="language-kotlin fade">  val sugar:    Boolean
+</code></pre><pre><code class="language-kotlin fade">)
+</code></pre></div><div class="slide"><pre><code class="language-kotlin fade">enum class Food {
+</code></pre><pre><code class="language-kotlin fade">    PANCAKES
+</code></pre><pre><code class="language-kotlin fade">}
+</code></pre><pre><code class="language-kotlin fade">
+</code></pre><pre><code class="language-kotlin fade">enum class Beverage {
+</code></pre><pre><code class="language-kotlin fade">    TEA,
+</code></pre><pre><code class="language-kotlin fade">    BATCH_BREW
+</code></pre><pre><code class="language-kotlin fade">}
+</code></pre><pre><code class="language-kotlin fade">
+</code></pre><pre><code class="language-kotlin show">data class Drink(
+</code></pre><pre><code class="language-kotlin show">  val beverage: Beverage,
+</code></pre><pre><code class="language-kotlin show">  val milk:     Boolean,
+</code></pre><pre><code class="language-kotlin show">  val sugar:    Boolean
+</code></pre><pre><code class="language-kotlin show">)
+</code></pre></div><div class="slide"><pre><code class="language-kotlin">enum class Food {
+    PANCAKES
+}
 
-type beverage
-    = "tea"
-    | "batch_brew";
+enum class Beverage {
+    TEA,
+    BATCH_BREW
+}
 
-type drink =
-    {beverage: beverage,
-     milk:     boolean,
-     sugar:    boolean};
-</code></pre></div><div class="slide"><img height="90%" src="images/06-tea-batch-brew-options.png" /></div><div class="slide"><img height="90%" src="images/04-espresso-machine.jpg" /></div><div class="slide"><pre><code class="language-typescript fade">type food = "pancakes";
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">type beverage
-</code></pre><pre><code class="language-typescript fade">    = "tea"
-</code></pre><pre><code class="language-typescript show">    | "espresso"
-</code></pre><pre><code class="language-typescript show">    | "cappuchino"
-</code></pre><pre><code class="language-typescript fade">    | "batch_brew";
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">type drink =
-</code></pre><pre><code class="language-typescript fade">    {beverage: beverage,
-</code></pre><pre><code class="language-typescript fade">     milk:     boolean,
-</code></pre><pre><code class="language-typescript fade">     sugar:    boolean};
+data class Drink(
+  val beverage: Beverage,
+  val milk:     Boolean,
+  val sugar:    Boolean
+)
+</code></pre></div><div class="slide"><img height="90%" src="images/06-tea-batch-brew-options.png" /></div><div class="slide"><img height="90%" src="images/04-espresso-machine.jpg" /></div><div class="slide"><pre><code class="language-kotlin fade">enum class Food {
+</code></pre><pre><code class="language-kotlin fade">    PANCAKES
+</code></pre><pre><code class="language-kotlin fade">}
+</code></pre><pre><code class="language-kotlin fade">
+</code></pre><pre><code class="language-kotlin fade">enum class Beverage {
+</code></pre><pre><code class="language-kotlin fade">    TEA,
+</code></pre><pre><code class="language-kotlin show">    ESPRESSO,
+</code></pre><pre><code class="language-kotlin show">    CAPPUCHINO,
+</code></pre><pre><code class="language-kotlin fade">    BATCH_BREW
+</code></pre><pre><code class="language-kotlin fade">}
+</code></pre><pre><code class="language-kotlin fade">
+</code></pre><pre><code class="language-kotlin fade">data class Drink(
+</code></pre><pre><code class="language-kotlin fade">    val beverage: Beverage,
+</code></pre><pre><code class="language-kotlin fade">    val milk:     Boolean,
+</code></pre><pre><code class="language-kotlin fade">    val sugar:    Boolean
+</code></pre><pre><code class="language-kotlin fade">)
 </code></pre></div><div class="slide"><img height="90%" src="images/07-espresso-options.png" /></div><div class="slide"><pre><code class="language-typescript">var pancakes_and_nonsense =
     ["pancakes",
 

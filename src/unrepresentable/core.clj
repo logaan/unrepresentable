@@ -55,6 +55,12 @@
        (if title [:h1 title])
        (code-block lines language code)))))
 
+(defn kotlin
+  ([file fades title]
+   (code-slides "kotlin" (str file ".kts") fades title))
+  ([file fades]
+   (kotlin file fades nil)))
+
 (defn typescript
   ([file fades title]
    (code-slides "typescript" (str file ".ts") fades title))
@@ -71,45 +77,111 @@
   (boilerplate
    (title
     ;; Pre-show
+
+    ;; Over the years I've done a lot of presentations. And they've mostly been
+    ;; technical ones..
     '("Pancakes with" [:br] "a side of nonsense")
     "Logan Campbell")
 
-   (typescript "01-pancakes"
-               [[]])
-   (image "14-slide-code.png")
+   ;; full of photos and code
    (image "16-sketch-bulk-export.jpg")
-   (typescript "01-pancakes"
-               [(range 3 6)])
-   (image "15-typescript-example.png")
-   (image "18-keynote-next-slide.jpg")
-   (image "19-keynote-copy-paste.jpg")
-   (image "17-tv-photo.jpg")
 
+   ;; But it's time consuming to do good quality code slides. Getting the syntax
+   ;; highliting to work in propper slideshow software
+   (image "19-keynote-copy-paste.jpg")
+
+   ;; And then going through and formatting transitions in the code
+   (typescript "01-pancakes"
+               [(range 3 6)
+                ;; So that people know what you're talking about, and don't get
+                ;; confused. The worst thing is when you make a change and have
+                ;; to go back through everything to update it all. Hopefully not
+                ;; introducing any bugs.
+                (range 7 11)])
+
+   ;; So I wrote my own slideshow generator. It lets me write all my code
+   ;; snippets in actual source files. They could even be unit tested. And in my
+   ;; slide definitions
+   (image "15-typescript-example.png")
+
+   ;; I can pull in that code, and it will automatically syntax highlight it for
+   ;; me. I can also specify which parts of the code should be highlighted.
+   (image "14-slide-code.png")
+
+   ;; And it gives me remote control features so I can see how long I've been
+   ;; talking for and what the upcoming slide is, kind of like keynote's one
+   ;; that you can see here.
+   (image "18-keynote-next-slide.jpg")
+
+   ;; I thought you might enjoy seeing behind the curtain a little. But it looks
+   ;; like everyone should be here now so we can start for real.
+
+   ;; Today I want to talk with you about how I've been thinking about
+   ;; structuring data recently, and about how we can talk about code quality in
+   ;; objective ways.
+
+   ;; To do that I've got a little example:
    (title
     '("Pancakes with" [:br] "a side of nonsense")
     "Logan Campbell")
 
-   ;; Set the scene
+   ;; We're going to model the menu of a diner, think something like Denny's.
    (image "01-diner.jpg")
+
+   ;; They serve some food like pancakes.
    (image "02-pancakes.jpg")
+
+   ;; And a variety of drinks. Tea,
    (image "13-tea.jpg")
+
+   ;; and American style drip coffee.
    (image "03-drip-coffee.jpg")
 
-   ;; Counting types
-   (typescript "01-pancakes"
-               [[1]
-                (range 3 6)
-                (range 7 11)
-                ;; Ask the audience how many types of food we have.
-                ;; Then how many types of beverage.
-                ;; And finally how many types of drink
-                []])
+   ;; So lets code up their menu. We've got a very small selection of food.
+   (kotlin "01-pancakes"
+           [(range 1 4)
+
+            ;; A couple of drinks
+            (range 5 9)
+
+            ;; And when you're ordering your drink you'll be asked whether you
+            ;; want it with milk and sugar.
+            (range 10 15)
+
+            ;; We've got ourselves a little program here, and we can use these
+            ;; data definitions to express a number of different menu items. The
+            ;; nice thing about this example is that it's simple enough that we
+            ;; can count them.
+
+            ;; Can someone tell me how many types of food we have?
+            ;; Good. And we can see that there are two type of beverage.
+            ;; But how many possible drinks are there?
+            []])
+
+   ;; Thats right. I've laid them out in a table here. We can have either tea,
+   ;; or batch brew. And for each of those drinks we can have it with, or
+   ;; without sugar (that's the columns in this table), and the rows are with
+   ;; or without milk.
    (image "06-tea-batch-brew-options.png")
 
-   ;; Espresso complication
+   ;; But this is a diner in Melbourne. And to compete with the local cafes they
+   ;; decide to get an espresso machine.
    (image "04-espresso-machine.jpg")
-   (typescript "03-espresso"
-               [[5 6]])
+
+   ;; So we can update our menu, adding in the new Beverages that they're able
+   ;; to prepare.
+   ;;
+   ;; So now how many drinks are we able to prepare? Before we had 8, now we
+   ;; have..
+   (kotlin "03-espresso"
+               [[7 8]])
+   ;; 16. So what was quite a small code change has doubled the possible states
+   ;; that our program could be in. If we were writing tests for some functions
+   ;; that work with drinks then going from 8 to 16 means we might not be
+   ;; writing automated tests for every possible case any more..
+   ;;
+   ;; Now I want you to think about this very unusual order that we're now able
+   ;; to express.
    (image "07-espresso-options.png")
 
    ;; Nonsense
