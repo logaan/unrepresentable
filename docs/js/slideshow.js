@@ -20,8 +20,6 @@ window.addEventListener('hashchange', showSlideFromHash);
 window.addEventListener('load', showSlideFromHash);
 
 document.body.onkeydown = function(e) {
-    console.log(e.code);
-
     if (e.code == "Space" || e.code == "ArrowRight") {
         nextSlide();
     } else if (e.code == "ArrowLeft") {
