@@ -20,12 +20,14 @@ window.addEventListener('hashchange', showSlideFromHash);
 window.addEventListener('load', showSlideFromHash);
 
 document.body.onkeydown = function(e) {
+    console.log(e.code);
+
     if (e.code == "Space" || e.code == "ArrowRight") {
         nextSlide();
     } else if (e.code == "ArrowLeft") {
         previousSlide();
     } else if (e.code == "Digit0") {
-        showSlide(0);
+        window.location.hash = "0";
     } else if (e.code == "KeyR") {
         openRemote();
     }

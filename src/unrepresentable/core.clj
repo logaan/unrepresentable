@@ -227,10 +227,6 @@
                 [9]])
    (image "09-nonsense-removed.png")
    (title "14 Options" "No nonsense")
-   (ruby "17-make-coffee-constructor"
-         [[]])
-   (ruby "08-class-cappuchino"
-         [[]])
 
    ;; Real examples
    (image "10-blurry-intersection.jpg")
@@ -311,10 +307,6 @@
 
    ;; TODO: User interfaces
    (image "23-user-interfaces.png")
-
-   ;; TODO: Code club
-   (title "#mel-code-club")
-   (image "23-toy-robot.png")
 
    (title "Thank you")
    (title "Questions?")

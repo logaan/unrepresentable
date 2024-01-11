@@ -154,21 +154,7 @@ data class BatchBrew(val milk: Boolean, val sugar: Boolean)</code></pre></div><d
 </code></pre><pre><code class="language-kotlin fade">data class Espresso(val milk: Boolean, val sugar: Boolean)
 </code></pre><pre><code class="language-kotlin show">data class Cappuchino(val sugar: Boolean)
 </code></pre><pre><code class="language-kotlin fade">data class BatchBrew(val milk: Boolean, val sugar: Boolean)
-</code></pre></div><div class="slide"><img height="90%" src="images/09-nonsense-removed.png" /></div><div class="slide"><h1>14 Options</h1><h2 class="byline">No nonsense</h2></div><div class="slide"><pre><code class="language-ruby">class Drink
-  def initialize(beverage: , sugar:, milk: )
-    if beverage == :cappuchino && !milk
-      raise "Nonsense"
-    end
-
-    @beverage = beverage
-    @sugar    = sugar
-    @milk     = milk
-  end
-end</code></pre></div><div class="slide"><pre><code class="language-ruby">class Cappuchino
-  def initialize(sugar: )
-    @sugar = sugar
-  end
-end</code></pre></div><div class="slide"><img height="90%" src="images/10-blurry-intersection.jpg" /></div><div class="slide"><h1>Vague types</h1><pre><code class="language-typescript show">var user_role: string;
+</code></pre></div><div class="slide"><img height="90%" src="images/09-nonsense-removed.png" /></div><div class="slide"><h1>14 Options</h1><h2 class="byline">No nonsense</h2></div><div class="slide"><img height="90%" src="images/10-blurry-intersection.jpg" /></div><div class="slide"><h1>Vague types</h1><pre><code class="language-typescript show">var user_role: string;
 </code></pre><pre><code class="language-typescript show">
 </code></pre><pre><code class="language-typescript show">user_role = "admin";
 </code></pre><pre><code class="language-typescript show">user_role = "milk_free_cappuccino";
@@ -362,7 +348,7 @@ end</code></pre></div><div class="slide"><img height="90%" src="images/10-blurry
              returned:               Date    | null,  // * 2
              dead_on_arrival_return: boolean | null,  // * 3
              change_of_mind_return:  boolean | null}; // * 3
-                                                      // = 1080</code></pre></div><div class="slide"><h1>1080 options<br />6 valid states</h1><h2 class="byline">99.4% Nonsense</h2></div><div class="slide"><h1>Data types are<br />countable</h1></div><div class="slide"><h1>Code complexity is<br />measurable</h1></div><div class="slide"><h1>Simple data means<br />simple code</h1></div><div class="slide"><h1>Simple data means<br />less bugs</h1></div><div class="slide"><h1>Simple data means<br />less to think about</h1></div><div class="slide"></div><div class="slide"><img height="90%" src="images/23-user-interfaces.png" /></div><div class="slide"><h1>#mel-code-club</h1></div><div class="slide"><img height="90%" src="images/23-toy-robot.png" /></div><div class="slide"><h1>Thank you</h1></div><div class="slide"><h1>Questions?</h1></div><div class="slide"><img height="90%" src="images/24-cyclomatic-complexity.png" /></div><div class="slide"><img height="90%" src="images/22-set.png" /></div><div class="slide"><img height="90%" src="images/20-polygon-disjoint-union.png" /></div><div class="slide"><img height="90%" src="images/21-cartesian-product.png" /></div><div class="slide"><pre><code class="language-typescript show">// food = 1
+                                                      // = 1080</code></pre></div><div class="slide"><h1>1080 options<br />6 valid states</h1><h2 class="byline">99.4% Nonsense</h2></div><div class="slide"><h1>Data types are<br />countable</h1></div><div class="slide"><h1>Code complexity is<br />measurable</h1></div><div class="slide"><h1>Simple data means<br />simple code</h1></div><div class="slide"><h1>Simple data means<br />less bugs</h1></div><div class="slide"><h1>Simple data means<br />less to think about</h1></div><div class="slide"></div><div class="slide"><img height="90%" src="images/23-user-interfaces.png" /></div><div class="slide"><h1>Thank you</h1></div><div class="slide"><h1>Questions?</h1></div><div class="slide"><img height="90%" src="images/24-cyclomatic-complexity.png" /></div><div class="slide"><img height="90%" src="images/22-set.png" /></div><div class="slide"><img height="90%" src="images/20-polygon-disjoint-union.png" /></div><div class="slide"><img height="90%" src="images/21-cartesian-product.png" /></div><div class="slide"><pre><code class="language-typescript show">// food = 1
 </code></pre><pre><code class="language-typescript show">type food = "pancakes";
 </code></pre><pre><code class="language-typescript fade">
 </code></pre><pre><code class="language-typescript fade">// beverage = 1 + 1
