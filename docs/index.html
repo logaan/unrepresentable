@@ -176,20 +176,20 @@ data class BatchBrew(val milk: Boolean, val sugar: Boolean)</code></pre></div><d
 </code></pre><pre><code class="language-kotlin show">
 </code></pre><pre><code class="language-kotlin show">newUserRole = UserRole.Admin
 </code></pre><pre><code class="language-kotlin show">// newUserRole = UserRole.MilkFreeCappuccino
-</code></pre></div><div class="slide"><img height="90%" src="images/11-twin-ducks.jpg" /></div><div class="slide"><h1>Related fields</h1><pre><code class="language-typescript show">var record: {id:         number,
-</code></pre><pre><code class="language-typescript show">             deleted:    Date   | null,
-</code></pre><pre><code class="language-typescript show">             deleted_by: string | null}
-</code></pre><pre><code class="language-typescript fade">                                             
-</code></pre><pre><code class="language-typescript fade">record = {id:         1,
-</code></pre><pre><code class="language-typescript fade">          deleted:    null,
-</code></pre><pre><code class="language-typescript fade">          deleted_by: null}
-</code></pre></div><div class="slide"><h1>Related fields</h1><pre><code class="language-typescript fade">var record: {id:         number,
-</code></pre><pre><code class="language-typescript fade">             deleted:    Date   | null,
-</code></pre><pre><code class="language-typescript fade">             deleted_by: string | null}
-</code></pre><pre><code class="language-typescript fade">                                             
-</code></pre><pre><code class="language-typescript show">record = {id:         1,
-</code></pre><pre><code class="language-typescript show">          deleted:    null,
-</code></pre><pre><code class="language-typescript show">          deleted_by: null}
+</code></pre></div><div class="slide"><img height="90%" src="images/11-twin-ducks.jpg" /></div><div class="slide"><h1>Related fields</h1><pre><code class="language-kotlin show">data class Record(val id         : Int,
+</code></pre><pre><code class="language-kotlin show">                  val deleted    : Date?,
+</code></pre><pre><code class="language-kotlin show">                  val deleted_by : String?)
+</code></pre><pre><code class="language-kotlin fade">
+</code></pre><pre><code class="language-kotlin fade">val record = Record(id         = 1,
+</code></pre><pre><code class="language-kotlin fade">                    deleted    = null,
+</code></pre><pre><code class="language-kotlin fade">                    deleted_by = null)
+</code></pre></div><div class="slide"><h1>Related fields</h1><pre><code class="language-kotlin fade">data class Record(val id         : Int,
+</code></pre><pre><code class="language-kotlin fade">                  val deleted    : Date?,
+</code></pre><pre><code class="language-kotlin fade">                  val deleted_by : String?)
+</code></pre><pre><code class="language-kotlin fade">
+</code></pre><pre><code class="language-kotlin show">val record = Record(id         = 1,
+</code></pre><pre><code class="language-kotlin show">                    deleted    = null,
+</code></pre><pre><code class="language-kotlin show">                    deleted_by = null)
 </code></pre></div><div class="slide"><h1>Related fields</h1><pre><code class="language-typescript fade">var record: {id:         number,
 </code></pre><pre><code class="language-typescript fade">             deleted:    Date   | null,
 </code></pre><pre><code class="language-typescript fade">             deleted_by: string | null}

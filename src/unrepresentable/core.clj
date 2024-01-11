@@ -238,10 +238,11 @@
 
    ;; Related fields
    (image "11-twin-ducks.jpg")
-   (typescript "13.0-valid-no-delete"
+   (kotlin "13.0-valid-no-delete"
                [(range 1 4)
                 (range 5 8)]
-               "Related fields")
+               "Related fields"
+               2)
    (typescript "13.1-valid-soft-delete"
                [(range 5 8)]
                "Related fields")
