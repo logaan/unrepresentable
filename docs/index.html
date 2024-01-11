@@ -73,8 +73,7 @@ data class Drink(
   val beverage: Beverage,
   val milk:     Boolean,
   val sugar:    Boolean
-)
-</code></pre></div><div class="slide"><img height="90%" src="images/06-tea-batch-brew-options.png" /></div><div class="slide"><img height="90%" src="images/04-espresso-machine.jpg" /></div><div class="slide"><pre><code class="language-kotlin fade">enum class Food {
+)</code></pre></div><div class="slide"><img height="90%" src="images/06-tea-batch-brew-options.png" /></div><div class="slide"><img height="90%" src="images/04-espresso-machine.jpg" /></div><div class="slide"><pre><code class="language-kotlin fade">enum class Food {
 </code></pre><pre><code class="language-kotlin fade">    PANCAKES
 </code></pre><pre><code class="language-kotlin fade">}
 </code></pre><pre><code class="language-kotlin fade">
@@ -90,18 +89,23 @@ data class Drink(
 </code></pre><pre><code class="language-kotlin fade">    val milk:     Boolean,
 </code></pre><pre><code class="language-kotlin fade">    val sugar:    Boolean
 </code></pre><pre><code class="language-kotlin fade">)
-</code></pre></div><div class="slide"><img height="90%" src="images/07-espresso-options.png" /></div><div class="slide"><pre><code class="language-typescript">var pancakes_and_nonsense =
-    ["pancakes",
+</code></pre></div><div class="slide"><img height="90%" src="images/07-espresso-options.png" /></div><div class="slide"><pre><code class="language-kotlin">val pancakesAndNonsense = arrayOf(
+    Food.PANCAKES,
 
-     {beverage: "cappuchino",
-      milk:     false,
-      sugar:    false}];
-</code></pre></div><div class="slide"><pre><code class="language-typescript fade">var pancakes_and_nonsense =
-</code></pre><pre><code class="language-typescript fade">    ["pancakes",
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript show">     {beverage: "cappuchino",
-</code></pre><pre><code class="language-typescript show">      milk:     false,
-</code></pre><pre><code class="language-typescript fade">      sugar:    false}];
+    Drink(
+        beverage = Beverage.CAPPUCHINO,
+        milk = false,
+        sugar = false
+    )
+)</code></pre></div><div class="slide"><pre><code class="language-kotlin fade">val pancakesAndNonsense = arrayOf(
+</code></pre><pre><code class="language-kotlin fade">    Food.PANCAKES,
+</code></pre><pre><code class="language-kotlin fade">
+</code></pre><pre><code class="language-kotlin fade">    Drink(
+</code></pre><pre><code class="language-kotlin show">        beverage = Beverage.CAPPUCHINO,
+</code></pre><pre><code class="language-kotlin show">        milk = false,
+</code></pre><pre><code class="language-kotlin fade">        sugar = false
+</code></pre><pre><code class="language-kotlin fade">    )
+</code></pre><pre><code class="language-kotlin fade">)
 </code></pre></div><div class="slide"><img height="90%" src="images/08-espresso-options-invalid.png" /></div><div class="slide"><h1>16 Options</h1><h2 class="byline">12.5% Nonsense</h2></div><div class="slide"><pre><code class="language-typescript">function makeCoffee(beverage: beverage,
                     milk:     boolean,
                     sugar:    boolean) {
@@ -114,8 +118,7 @@ data class Drink(
                 sugar:    sugar};
     }
 
-}
-</code></pre></div><div class="slide"><pre><code class="language-typescript fade">function makeCoffee(beverage: beverage,
+}</code></pre></div><div class="slide"><pre><code class="language-typescript fade">function makeCoffee(beverage: beverage,
 </code></pre><pre><code class="language-typescript fade">                    milk:     boolean,
 </code></pre><pre><code class="language-typescript fade">                    sugar:    boolean) {
 </code></pre><pre><code class="language-typescript fade">
@@ -130,8 +133,7 @@ data class Drink(
 </code></pre><pre><code class="language-typescript fade">}
 </code></pre></div><div class="slide"><img height="90%" src="images/05-make-coffee-constructor.png" /></div><div class="slide"><pre><code class="language-ruby">Drink.new(beverage: "cappuchino",
           sugar:    true,
-          milk:     false)
-</code></pre></div><div class="slide"><pre><code class="language-ruby">class Drink
+          milk:     false)</code></pre></div><div class="slide"><pre><code class="language-ruby">class Drink
   def initialize(beverage: , sugar:, milk: )
     if beverage == :cappuchino && !milk
       raise "Nonsense"
@@ -141,15 +143,13 @@ data class Drink(
     @sugar    = sugar
     @milk     = milk
   end
-end
-</code></pre></div><div class="slide"><pre><code class="language-typescript">type food = "pancakes";
+end</code></pre></div><div class="slide"><pre><code class="language-typescript">type food = "pancakes";
 
 type drink
     = {beverage: "batch_brew", milk: boolean, sugar: boolean}
     | {beverage: "espresso",   milk: boolean, sugar: boolean}
     | {beverage: "cappuchino",                sugar: boolean}
-    | {beverage: "tea",        milk: boolean, sugar: boolean};
-</code></pre></div><div class="slide"><pre><code class="language-typescript fade">type food = "pancakes";
+    | {beverage: "tea",        milk: boolean, sugar: boolean};</code></pre></div><div class="slide"><pre><code class="language-typescript fade">type food = "pancakes";
 </code></pre><pre><code class="language-typescript fade">
 </code></pre><pre><code class="language-typescript fade">type drink
 </code></pre><pre><code class="language-typescript fade">    = {beverage: "batch_brew", milk: boolean, sugar: boolean}
@@ -166,13 +166,11 @@ type drink
     @sugar    = sugar
     @milk     = milk
   end
-end
-</code></pre></div><div class="slide"><pre><code class="language-ruby">class Cappuchino
+end</code></pre></div><div class="slide"><pre><code class="language-ruby">class Cappuchino
   def initialize(sugar: )
     @sugar = sugar
   end
-end
-</code></pre></div><div class="slide"><img height="90%" src="images/10-blurry-intersection.jpg" /></div><div class="slide"><h1>Vague types</h1><pre><code class="language-typescript show">var user_role: string;
+end</code></pre></div><div class="slide"><img height="90%" src="images/10-blurry-intersection.jpg" /></div><div class="slide"><h1>Vague types</h1><pre><code class="language-typescript show">var user_role: string;
 </code></pre><pre><code class="language-typescript show">
 </code></pre><pre><code class="language-typescript show">user_role = "admin";
 </code></pre><pre><code class="language-typescript show">user_role = "milk_free_cappuccino";
@@ -261,8 +259,7 @@ end
              delivered:              Date    | null,
              returned:               Date    | null,
              dead_on_arrival_return: boolean | null,
-             change_of_mind_return:  boolean | null};
-</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-typescript fade">var parcel: {id:                     number,
+             change_of_mind_return:  boolean | null};</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-typescript fade">var parcel: {id:                     number,
 </code></pre><pre><code class="language-typescript show">             state:                  string,
 </code></pre><pre><code class="language-typescript fade">             shipped:                Date    | null,
 </code></pre><pre><code class="language-typescript fade">             lost_during_delivery:   boolean | null,
@@ -359,8 +356,7 @@ end
        reason:    "dead_on_arrival" | "change_of_mind"
        shipped:   Date,
        delivered: Date,
-       returned:  Date};
-</code></pre></div><div class="slide"><pre><code class="language-typescript">var parcel: {id:                     number,          //   1
+       returned:  Date};</code></pre></div><div class="slide"><pre><code class="language-typescript">var parcel: {id:                     number,          //   1
              state:                  string,          // * 6
              shipped:                Date    | null,  // * 2
              lost_during_delivery:   boolean | null,  // * 3
@@ -368,8 +364,7 @@ end
              returned:               Date    | null,  // * 2
              dead_on_arrival_return: boolean | null,  // * 3
              change_of_mind_return:  boolean | null}; // * 3
-                                                      // = 1080
-</code></pre></div><div class="slide"><h1>1080 options<br />6 valid states</h1><h2 class="byline">99.4% Nonsense</h2></div><div class="slide"><h1>Data types are<br />countable</h1></div><div class="slide"><h1>Code complexity is<br />measurable</h1></div><div class="slide"><h1>Simple data means<br />simple code</h1></div><div class="slide"><h1>Simple data means<br />less bugs</h1></div><div class="slide"><h1>Simple data means<br />less to think about</h1></div><div class="slide"></div><div class="slide"><img height="90%" src="images/23-user-interfaces.png" /></div><div class="slide"><h1>#mel-code-club</h1></div><div class="slide"><img height="90%" src="images/23-toy-robot.png" /></div><div class="slide"><h1>Thank you</h1></div><div class="slide"><h1>Questions?</h1></div><div class="slide"><img height="90%" src="images/24-cyclomatic-complexity.png" /></div><div class="slide"><img height="90%" src="images/22-set.png" /></div><div class="slide"><img height="90%" src="images/20-polygon-disjoint-union.png" /></div><div class="slide"><img height="90%" src="images/21-cartesian-product.png" /></div><div class="slide"><pre><code class="language-typescript show">// food = 1
+                                                      // = 1080</code></pre></div><div class="slide"><h1>1080 options<br />6 valid states</h1><h2 class="byline">99.4% Nonsense</h2></div><div class="slide"><h1>Data types are<br />countable</h1></div><div class="slide"><h1>Code complexity is<br />measurable</h1></div><div class="slide"><h1>Simple data means<br />simple code</h1></div><div class="slide"><h1>Simple data means<br />less bugs</h1></div><div class="slide"><h1>Simple data means<br />less to think about</h1></div><div class="slide"></div><div class="slide"><img height="90%" src="images/23-user-interfaces.png" /></div><div class="slide"><h1>#mel-code-club</h1></div><div class="slide"><img height="90%" src="images/23-toy-robot.png" /></div><div class="slide"><h1>Thank you</h1></div><div class="slide"><h1>Questions?</h1></div><div class="slide"><img height="90%" src="images/24-cyclomatic-complexity.png" /></div><div class="slide"><img height="90%" src="images/22-set.png" /></div><div class="slide"><img height="90%" src="images/20-polygon-disjoint-union.png" /></div><div class="slide"><img height="90%" src="images/21-cartesian-product.png" /></div><div class="slide"><pre><code class="language-typescript show">// food = 1
 </code></pre><pre><code class="language-typescript show">type food = "pancakes";
 </code></pre><pre><code class="language-typescript fade">
 </code></pre><pre><code class="language-typescript fade">// beverage = 1 + 1
@@ -432,5 +427,4 @@ type beverage
 type drink =
     {beverage: beverage,
      milk:     boolean,
-     sugar:    boolean};
-</code></pre></div><div class="slide"><h1>Thank you</h1></div><script src="js/highlight.min.js"></script><script>hljs.highlightAll();</script><script src="js/common.js"></script><script src="js/slideshow.js"></script></body></html>
+     sugar:    boolean};</code></pre></div><div class="slide"><h1>Thank you</h1></div><script src="js/highlight.min.js"></script><script>hljs.highlightAll();</script><script src="js/common.js"></script><script src="js/slideshow.js"></script></body></html>

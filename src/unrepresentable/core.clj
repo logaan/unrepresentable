@@ -1,6 +1,6 @@
 (ns unrepresentable.core
   (:require [hiccup.core :refer [html]]
-            [clojure.string :refer [split]]
+            [clojure.string :refer [join split]]
             [clojure.java.io :as io]))
 
 (defn boilerplate [& slides]
@@ -33,33 +33,38 @@
    [:img {:height "90%" :src (str "images/" filename)}]))
 
 
-(defn code-block [lines language code]
+(defn code-block [lines language code ndrop]
   (if (empty? lines)
 
     [:pre
      [:code {:class (str "language-" language)}
-      code]]
+      (->> (split code #"\n")
+           (drop ndrop)
+           (join "\n"))]]
 
-    (for [[n line] (map list (range) (split code #"\n"))]
+    (for [[n line] (map list (range) (drop ndrop (split code #"\n")))]
       [:pre
        [:code {:class (str "language-" language " "
                            (if (lines (inc n)) "show" "fade"))}
         line "\n"]])))
 
-(defn code-slides [language filename fades title]
-  (for [lines fades]
-    (let [lines (set lines)
-          path  (.getPath (io/resource (str "code/" filename)))
-          code  (slurp path)]
-      (slide
-       (if title [:h1 title])
-       (code-block lines language code)))))
+(defn code-slides
+  ([language filename fades title ndrop]
+   (for [lines fades]
+     (let [lines (set lines)
+           path  (.getPath (io/resource (str "code/" filename)))
+           code  (slurp path)]
+       (slide
+        (if title [:h1 title])
+        (code-block lines language code ndrop)))))
+  ([language filename fades title]
+   (code-slides language filename fades title 0)))
 
 (defn kotlin
-  ([file fades title]
-   (code-slides "kotlin" (str file ".kts") fades title))
+  ([file fades title drop]
+   (code-slides "kotlin" (str file ".kts") fades title drop))
   ([file fades]
-   (kotlin file fades nil)))
+   (kotlin file fades nil 0)))
 
 (defn typescript
   ([file fades title]
@@ -185,9 +190,10 @@
    (image "07-espresso-options.png")
 
    ;; Nonsense
-   (typescript "04-cappuchino-no-milk"
+   (kotlin "04-cappuchino-no-milk"
                [[]
-                [4 5]])
+                [5 6]]
+               nil 17)
    (image "08-espresso-options-invalid.png")
    (title "16 Options" "12.5% Nonsense")
 
