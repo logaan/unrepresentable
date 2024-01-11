@@ -198,21 +198,33 @@
    (title "16 Options" "12.5% Nonsense")
 
    ;; Nonsense breads complexity
-   (typescript "05-make-coffee-constructor"
+   ;; Now nonsense in and of itself isn't the end of the world. We can work
+   ;; around it. We can put guards in our code to protect against it. But it
+   ;; does make our code more complex.
+   ;;
+   ;; And when I say complex here I'm talking about objective complexity, I'm
+   ;; not saying that I like the code less, or that it's harder to understand.
+   ;; Although those are both true. Instead I'm saying that there are more paths
+   ;; through our code than before. And just like with our data, because we're
+   ;; talking about objective facts about our code: we can count them.
+   (kotlin "05-make-coffee-constructor"
                [[]
-                [5]])
+                [5]]
+               nil
+               17)
+
+   ;; So here is a graphical representation of our makeCoffe function. I
+   ;; appologise for cappuchino being a string here, this talk was originally
+   ;; written for a typescript and ruby audience.
+   ;;
+   ;; But we can see that we now have 3 paths through our code... [talk through
+   ;; them]
    (image "05-make-coffee-constructor.png")
 
-   ;; This all applies outside of types languages
-   (ruby "07-ruby-new-drink"
-         [[]])
-   (ruby "17-make-coffee-constructor"
-         [[]])
-
    ;; What's the alternative? Remove the nonsense.
-   (typescript "06-more-granular-types"
+   (kotlin "06-more-granular-types"
                [[]
-                [6]])
+                [9]])
    (image "09-nonsense-removed.png")
    (title "14 Options" "No nonsense")
    (ruby "17-make-coffee-constructor"
