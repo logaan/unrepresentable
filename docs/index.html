@@ -141,19 +141,19 @@ data class Drink(
 
 sealed interface Drink
 
-data class Tea(val milk: Boolean, val sugar: Boolean)
-data class Espresso(val milk: Boolean, val sugar: Boolean)
-data class Cappuchino(val sugar: Boolean)
-data class BatchBrew(val milk: Boolean, val sugar: Boolean)</code></pre></div><div class="slide"><pre><code class="language-kotlin fade">enum class Food {
+data class Tea(val milk: Boolean, val sugar: Boolean): Drink
+data class Espresso(val milk: Boolean, val sugar: Boolean): Drink
+data class Cappuchino(val sugar: Boolean): Drink
+data class BatchBrew(val milk: Boolean, val sugar: Boolean): Drink</code></pre></div><div class="slide"><pre><code class="language-kotlin fade">enum class Food {
 </code></pre><pre><code class="language-kotlin fade">    PANCAKES
 </code></pre><pre><code class="language-kotlin fade">}
 </code></pre><pre><code class="language-kotlin fade">
 </code></pre><pre><code class="language-kotlin fade">sealed interface Drink
 </code></pre><pre><code class="language-kotlin fade">
-</code></pre><pre><code class="language-kotlin fade">data class Tea(val milk: Boolean, val sugar: Boolean)
-</code></pre><pre><code class="language-kotlin fade">data class Espresso(val milk: Boolean, val sugar: Boolean)
-</code></pre><pre><code class="language-kotlin show">data class Cappuchino(val sugar: Boolean)
-</code></pre><pre><code class="language-kotlin fade">data class BatchBrew(val milk: Boolean, val sugar: Boolean)
+</code></pre><pre><code class="language-kotlin fade">data class Tea(val milk: Boolean, val sugar: Boolean): Drink
+</code></pre><pre><code class="language-kotlin fade">data class Espresso(val milk: Boolean, val sugar: Boolean): Drink
+</code></pre><pre><code class="language-kotlin show">data class Cappuchino(val sugar: Boolean): Drink
+</code></pre><pre><code class="language-kotlin fade">data class BatchBrew(val milk: Boolean, val sugar: Boolean): Drink
 </code></pre></div><div class="slide"><img height="90%" src="images/09-nonsense-removed.png" /></div><div class="slide"><h1>14 Options</h1><h2 class="byline">No nonsense</h2></div><div class="slide"><img height="90%" src="images/10-blurry-intersection.jpg" /></div><div class="slide"><h1>Vague types</h1><pre><code class="language-kotlin show">var userRole: String
 </code></pre><pre><code class="language-kotlin show">
 </code></pre><pre><code class="language-kotlin show">userRole = "admin"
@@ -243,118 +243,119 @@ data class BatchBrew(val milk: Boolean, val sugar: Boolean)</code></pre></div><d
 </code></pre><pre><code class="language-kotlin show">//     deletion = Deletion(deleted   = null,
 </code></pre><pre><code class="language-kotlin show">//                         deletedBy = "Logan")
 </code></pre><pre><code class="language-kotlin show">// )
-</code></pre></div><div class="slide"><img height="90%" src="images/12-car-crash.jpg" /></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-typescript">var parcel: {id:                     number,
-             state:                  string,
-             shipped:                Date    | null,
-             lost_during_delivery:   boolean | null,
-             delivered:              Date    | null,
-             returned:               Date    | null,
-             dead_on_arrival_return: boolean | null,
-             change_of_mind_return:  boolean | null};</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-typescript fade">var parcel: {id:                     number,
-</code></pre><pre><code class="language-typescript show">             state:                  string,
-</code></pre><pre><code class="language-typescript fade">             shipped:                Date    | null,
-</code></pre><pre><code class="language-typescript fade">             lost_during_delivery:   boolean | null,
-</code></pre><pre><code class="language-typescript fade">             delivered:              Date    | null,
-</code></pre><pre><code class="language-typescript fade">             returned:               Date    | null,
-</code></pre><pre><code class="language-typescript fade">             dead_on_arrival_return: boolean | null,
-</code></pre><pre><code class="language-typescript fade">             change_of_mind_return:  boolean | null};
-</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-typescript fade">var parcel: {id:                     number,
-</code></pre><pre><code class="language-typescript fade">             state:                  string,
-</code></pre><pre><code class="language-typescript show">             shipped:                Date    | null,
-</code></pre><pre><code class="language-typescript show">             lost_during_delivery:   boolean | null,
-</code></pre><pre><code class="language-typescript fade">             delivered:              Date    | null,
-</code></pre><pre><code class="language-typescript fade">             returned:               Date    | null,
-</code></pre><pre><code class="language-typescript fade">             dead_on_arrival_return: boolean | null,
-</code></pre><pre><code class="language-typescript fade">             change_of_mind_return:  boolean | null};
-</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-typescript fade">var parcel: {id:                     number,
-</code></pre><pre><code class="language-typescript fade">             state:                  string,
-</code></pre><pre><code class="language-typescript show">             shipped:                Date    | null,
-</code></pre><pre><code class="language-typescript fade">             lost_during_delivery:   boolean | null,
-</code></pre><pre><code class="language-typescript show">             delivered:              Date    | null,
-</code></pre><pre><code class="language-typescript fade">             returned:               Date    | null,
-</code></pre><pre><code class="language-typescript fade">             dead_on_arrival_return: boolean | null,
-</code></pre><pre><code class="language-typescript fade">             change_of_mind_return:  boolean | null};
-</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-typescript fade">var parcel: {id:                     number,
-</code></pre><pre><code class="language-typescript fade">             state:                  string,
-</code></pre><pre><code class="language-typescript fade">             shipped:                Date    | null,
-</code></pre><pre><code class="language-typescript show">             lost_during_delivery:   boolean | null,
-</code></pre><pre><code class="language-typescript show">             delivered:              Date    | null,
-</code></pre><pre><code class="language-typescript fade">             returned:               Date    | null,
-</code></pre><pre><code class="language-typescript fade">             dead_on_arrival_return: boolean | null,
-</code></pre><pre><code class="language-typescript fade">             change_of_mind_return:  boolean | null};
-</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-typescript fade">var parcel: {id:                     number,
-</code></pre><pre><code class="language-typescript fade">             state:                  string,
-</code></pre><pre><code class="language-typescript show">             shipped:                Date    | null,
-</code></pre><pre><code class="language-typescript fade">             lost_during_delivery:   boolean | null,
-</code></pre><pre><code class="language-typescript fade">             delivered:              Date    | null,
-</code></pre><pre><code class="language-typescript show">             returned:               Date    | null,
-</code></pre><pre><code class="language-typescript fade">             dead_on_arrival_return: boolean | null,
-</code></pre><pre><code class="language-typescript fade">             change_of_mind_return:  boolean | null};
-</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-typescript fade">var parcel: {id:                     number,
-</code></pre><pre><code class="language-typescript fade">             state:                  string,
-</code></pre><pre><code class="language-typescript fade">             shipped:                Date    | null,
-</code></pre><pre><code class="language-typescript show">             lost_during_delivery:   boolean | null,
-</code></pre><pre><code class="language-typescript fade">             delivered:              Date    | null,
-</code></pre><pre><code class="language-typescript show">             returned:               Date    | null,
-</code></pre><pre><code class="language-typescript fade">             dead_on_arrival_return: boolean | null,
-</code></pre><pre><code class="language-typescript fade">             change_of_mind_return:  boolean | null};
-</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-typescript fade">var parcel: {id:                     number,
-</code></pre><pre><code class="language-typescript fade">             state:                  string,
-</code></pre><pre><code class="language-typescript fade">             shipped:                Date    | null,
-</code></pre><pre><code class="language-typescript fade">             lost_during_delivery:   boolean | null,
-</code></pre><pre><code class="language-typescript show">             delivered:              Date    | null,
-</code></pre><pre><code class="language-typescript show">             returned:               Date    | null,
-</code></pre><pre><code class="language-typescript fade">             dead_on_arrival_return: boolean | null,
-</code></pre><pre><code class="language-typescript fade">             change_of_mind_return:  boolean | null};
-</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-typescript fade">var parcel: {id:                     number,
-</code></pre><pre><code class="language-typescript fade">             state:                  string,
-</code></pre><pre><code class="language-typescript fade">             shipped:                Date    | null,
-</code></pre><pre><code class="language-typescript fade">             lost_during_delivery:   boolean | null,
-</code></pre><pre><code class="language-typescript fade">             delivered:              Date    | null,
-</code></pre><pre><code class="language-typescript show">             returned:               Date    | null,
-</code></pre><pre><code class="language-typescript show">             dead_on_arrival_return: boolean | null,
-</code></pre><pre><code class="language-typescript show">             change_of_mind_return:  boolean | null};
-</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-typescript fade">var parcel: {id:                     number,
-</code></pre><pre><code class="language-typescript fade">             state:                  string,
-</code></pre><pre><code class="language-typescript fade">             shipped:                Date    | null,
-</code></pre><pre><code class="language-typescript fade">             lost_during_delivery:   boolean | null,
-</code></pre><pre><code class="language-typescript fade">             delivered:              Date    | null,
-</code></pre><pre><code class="language-typescript fade">             returned:               Date    | null,
-</code></pre><pre><code class="language-typescript show">             dead_on_arrival_return: boolean | null,
-</code></pre><pre><code class="language-typescript show">             change_of_mind_return:  boolean | null};
-</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-typescript fade">var parcel: {id:                     number,
-</code></pre><pre><code class="language-typescript show">             state:                  string,
-</code></pre><pre><code class="language-typescript show">             shipped:                Date    | null,
-</code></pre><pre><code class="language-typescript show">             lost_during_delivery:   boolean | null,
-</code></pre><pre><code class="language-typescript show">             delivered:              Date    | null,
-</code></pre><pre><code class="language-typescript show">             returned:               Date    | null,
-</code></pre><pre><code class="language-typescript show">             dead_on_arrival_return: boolean | null,
-</code></pre><pre><code class="language-typescript show">             change_of_mind_return:  boolean | null};
-</code></pre></div><div class="slide"><pre><code class="language-typescript">type delivery_status
-    = {state:     "preparing"}
+</code></pre></div><div class="slide"><img height="90%" src="images/12-car-crash.jpg" /></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-kotlin">data class Parcel(val id                  : Int,
+                  val state               : String,
+                  val shipped             : Date?,
+                  val lostDuringDelivery  : Boolean?,
+                  val delivered           : Date?,
+                  val returned            : Date?,
+                  val deadOnArrivalReturn : Boolean?,
+                  val changeOfMindReturn  : Boolean?)</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-kotlin fade">data class Parcel(val id                  : Int,
+</code></pre><pre><code class="language-kotlin show">                  val state               : String,
+</code></pre><pre><code class="language-kotlin fade">                  val shipped             : Date?,
+</code></pre><pre><code class="language-kotlin fade">                  val lostDuringDelivery  : Boolean?,
+</code></pre><pre><code class="language-kotlin fade">                  val delivered           : Date?,
+</code></pre><pre><code class="language-kotlin fade">                  val returned            : Date?,
+</code></pre><pre><code class="language-kotlin fade">                  val deadOnArrivalReturn : Boolean?,
+</code></pre><pre><code class="language-kotlin fade">                  val changeOfMindReturn  : Boolean?)
+</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-kotlin fade">data class Parcel(val id                  : Int,
+</code></pre><pre><code class="language-kotlin fade">                  val state               : String,
+</code></pre><pre><code class="language-kotlin show">                  val shipped             : Date?,
+</code></pre><pre><code class="language-kotlin show">                  val lostDuringDelivery  : Boolean?,
+</code></pre><pre><code class="language-kotlin fade">                  val delivered           : Date?,
+</code></pre><pre><code class="language-kotlin fade">                  val returned            : Date?,
+</code></pre><pre><code class="language-kotlin fade">                  val deadOnArrivalReturn : Boolean?,
+</code></pre><pre><code class="language-kotlin fade">                  val changeOfMindReturn  : Boolean?)
+</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-kotlin fade">data class Parcel(val id                  : Int,
+</code></pre><pre><code class="language-kotlin fade">                  val state               : String,
+</code></pre><pre><code class="language-kotlin show">                  val shipped             : Date?,
+</code></pre><pre><code class="language-kotlin fade">                  val lostDuringDelivery  : Boolean?,
+</code></pre><pre><code class="language-kotlin show">                  val delivered           : Date?,
+</code></pre><pre><code class="language-kotlin fade">                  val returned            : Date?,
+</code></pre><pre><code class="language-kotlin fade">                  val deadOnArrivalReturn : Boolean?,
+</code></pre><pre><code class="language-kotlin fade">                  val changeOfMindReturn  : Boolean?)
+</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-kotlin fade">data class Parcel(val id                  : Int,
+</code></pre><pre><code class="language-kotlin fade">                  val state               : String,
+</code></pre><pre><code class="language-kotlin fade">                  val shipped             : Date?,
+</code></pre><pre><code class="language-kotlin show">                  val lostDuringDelivery  : Boolean?,
+</code></pre><pre><code class="language-kotlin show">                  val delivered           : Date?,
+</code></pre><pre><code class="language-kotlin fade">                  val returned            : Date?,
+</code></pre><pre><code class="language-kotlin fade">                  val deadOnArrivalReturn : Boolean?,
+</code></pre><pre><code class="language-kotlin fade">                  val changeOfMindReturn  : Boolean?)
+</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-kotlin fade">data class Parcel(val id                  : Int,
+</code></pre><pre><code class="language-kotlin fade">                  val state               : String,
+</code></pre><pre><code class="language-kotlin show">                  val shipped             : Date?,
+</code></pre><pre><code class="language-kotlin fade">                  val lostDuringDelivery  : Boolean?,
+</code></pre><pre><code class="language-kotlin fade">                  val delivered           : Date?,
+</code></pre><pre><code class="language-kotlin show">                  val returned            : Date?,
+</code></pre><pre><code class="language-kotlin fade">                  val deadOnArrivalReturn : Boolean?,
+</code></pre><pre><code class="language-kotlin fade">                  val changeOfMindReturn  : Boolean?)
+</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-kotlin fade">data class Parcel(val id                  : Int,
+</code></pre><pre><code class="language-kotlin fade">                  val state               : String,
+</code></pre><pre><code class="language-kotlin fade">                  val shipped             : Date?,
+</code></pre><pre><code class="language-kotlin show">                  val lostDuringDelivery  : Boolean?,
+</code></pre><pre><code class="language-kotlin fade">                  val delivered           : Date?,
+</code></pre><pre><code class="language-kotlin show">                  val returned            : Date?,
+</code></pre><pre><code class="language-kotlin fade">                  val deadOnArrivalReturn : Boolean?,
+</code></pre><pre><code class="language-kotlin fade">                  val changeOfMindReturn  : Boolean?)
+</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-kotlin fade">data class Parcel(val id                  : Int,
+</code></pre><pre><code class="language-kotlin fade">                  val state               : String,
+</code></pre><pre><code class="language-kotlin fade">                  val shipped             : Date?,
+</code></pre><pre><code class="language-kotlin fade">                  val lostDuringDelivery  : Boolean?,
+</code></pre><pre><code class="language-kotlin show">                  val delivered           : Date?,
+</code></pre><pre><code class="language-kotlin show">                  val returned            : Date?,
+</code></pre><pre><code class="language-kotlin fade">                  val deadOnArrivalReturn : Boolean?,
+</code></pre><pre><code class="language-kotlin fade">                  val changeOfMindReturn  : Boolean?)
+</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-kotlin fade">data class Parcel(val id                  : Int,
+</code></pre><pre><code class="language-kotlin fade">                  val state               : String,
+</code></pre><pre><code class="language-kotlin fade">                  val shipped             : Date?,
+</code></pre><pre><code class="language-kotlin fade">                  val lostDuringDelivery  : Boolean?,
+</code></pre><pre><code class="language-kotlin fade">                  val delivered           : Date?,
+</code></pre><pre><code class="language-kotlin show">                  val returned            : Date?,
+</code></pre><pre><code class="language-kotlin show">                  val deadOnArrivalReturn : Boolean?,
+</code></pre><pre><code class="language-kotlin show">                  val changeOfMindReturn  : Boolean?)
+</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-kotlin fade">data class Parcel(val id                  : Int,
+</code></pre><pre><code class="language-kotlin fade">                  val state               : String,
+</code></pre><pre><code class="language-kotlin fade">                  val shipped             : Date?,
+</code></pre><pre><code class="language-kotlin fade">                  val lostDuringDelivery  : Boolean?,
+</code></pre><pre><code class="language-kotlin fade">                  val delivered           : Date?,
+</code></pre><pre><code class="language-kotlin fade">                  val returned            : Date?,
+</code></pre><pre><code class="language-kotlin show">                  val deadOnArrivalReturn : Boolean?,
+</code></pre><pre><code class="language-kotlin show">                  val changeOfMindReturn  : Boolean?)
+</code></pre></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-kotlin fade">data class Parcel(val id                  : Int,
+</code></pre><pre><code class="language-kotlin show">                  val state               : String,
+</code></pre><pre><code class="language-kotlin show">                  val shipped             : Date?,
+</code></pre><pre><code class="language-kotlin show">                  val lostDuringDelivery  : Boolean?,
+</code></pre><pre><code class="language-kotlin show">                  val delivered           : Date?,
+</code></pre><pre><code class="language-kotlin show">                  val returned            : Date?,
+</code></pre><pre><code class="language-kotlin show">                  val deadOnArrivalReturn : Boolean?,
+</code></pre><pre><code class="language-kotlin show">                  val changeOfMindReturn  : Boolean?)
+</code></pre></div><div class="slide"><pre><code class="language-kotlin">sealed interface DeliveryStatus
 
-    | {state:     "in_transit",
-       shipped:   Date}
+class Preparing(): DeliveryStatus
 
-    | {state:     "lost_during_delivery",
-       shipped:   Date}
+data class InTransit(val shipped: Date): DeliveryStatus
 
-    | {state:     "delivered",
-       shipped:   Date,
-       delivered: Date}
+data class LostDuringDelivery(val shipped: Date): DeliveryStatus
 
-    | {state:     "returned",
-       reason:    "dead_on_arrival" | "change_of_mind"
-       shipped:   Date,
-       delivered: Date,
-       returned:  Date};</code></pre></div><div class="slide"><pre><code class="language-typescript">var parcel: {id:                     number,          //   1
-             state:                  string,          // * 6
-             shipped:                Date    | null,  // * 2
-             lost_during_delivery:   boolean | null,  // * 3
-             delivered:              Date    | null,  // * 2
-             returned:               Date    | null,  // * 2
-             dead_on_arrival_return: boolean | null,  // * 3
-             change_of_mind_return:  boolean | null}; // * 3
+data class Delivered(
+    val shipped: Date,
+    val delivered: Date
+): DeliveryStatus
+
+enum class ReturnReason {DEAD_ON_ARRIVAL, CHANGE_OF_MIND}
+data class Returned(val reason: ReturnReason,
+                    val shipped: Date,
+                    val delivered: Date,
+                    val returned: Date
+): DeliveryStatus</code></pre></div><div class="slide"><pre><code class="language-kotlin">data class Parcel(val id                  : Int,      //   1
+                  val state               : String,   // * 6
+                  val shipped             : Date?,    // * 2
+                  val lostDuringDelivery  : Boolean?, // * 3
+                  val delivered           : Date?,    // * 2
+                  val returned            : Date?,    // * 2
+                  val deadOnArrivalReturn : Boolean?, // * 3
+                  val changeOfMindReturn  : Boolean?) // * 3
                                                       // = 1080</code></pre></div><div class="slide"><h1>1080 options<br />6 valid states</h1><h2 class="byline">99.4% Nonsense</h2></div><div class="slide"><h1>Data types are<br />countable</h1></div><div class="slide"><h1>Code complexity is<br />measurable</h1></div><div class="slide"><h1>Simple data means<br />simple code</h1></div><div class="slide"><h1>Simple data means<br />less bugs</h1></div><div class="slide"><h1>Simple data means<br />less to think about</h1></div><div class="slide"></div><div class="slide"><img height="90%" src="images/23-user-interfaces.png" /></div><div class="slide"><h1>Thank you</h1></div><div class="slide"><h1>Questions?</h1></div><div class="slide"><img height="90%" src="images/24-cyclomatic-complexity.png" /></div><div class="slide"><img height="90%" src="images/22-set.png" /></div><div class="slide"><img height="90%" src="images/20-polygon-disjoint-union.png" /></div><div class="slide"><img height="90%" src="images/21-cartesian-product.png" /></div><div class="slide"><pre><code class="language-typescript show">// food = 1
 </code></pre><pre><code class="language-typescript show">type food = "pancakes";
 </code></pre><pre><code class="language-typescript fade">

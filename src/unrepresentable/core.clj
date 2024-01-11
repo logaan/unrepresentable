@@ -270,7 +270,7 @@
 
    ;; State machine car crash
    (image "12-car-crash.jpg")
-   (typescript "15-parcel"
+   (kotlin "15-parcel"
                [[]
                 [2]
                 ;; If lost, better be shipped
@@ -291,12 +291,17 @@
                 [7 8]
                 (range 2 9)
                 ]
-               "State machine car crash")
+               "State machine car crash"
+               2)
    ;; TODO: Focus on each individual state
-   (typescript "16-delivery-status"
-               [[]])
-   (typescript "18-parcel-count"
-               [[]])
+   (kotlin "16-delivery-status"
+               [[]]
+               nil
+               2)
+   (kotlin "18-parcel-count"
+               [[]]
+               nil
+               2)
    (title '("1080 options" [:br] "6 valid states") "99.4% Nonsense")
 
    ;; TODO: Nulls
