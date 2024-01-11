@@ -28,6 +28,11 @@ document.body.onkeydown = function(e) {
         previousSlide();
     } else if (e.code == "Digit0") {
         window.location.hash = "0";
+    } else if (e.code == "Slash") {
+        alert("Space, Arrow Right: Next slide\n" +
+              "Arrow Left: Previous slide\n" +
+              "0: First slide\n" +
+              "r: Open remote");
     } else if (e.code == "KeyR") {
         openRemote();
     }
