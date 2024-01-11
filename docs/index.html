@@ -154,24 +154,28 @@ data class BatchBrew(val milk: Boolean, val sugar: Boolean)</code></pre></div><d
 </code></pre><pre><code class="language-kotlin fade">data class Espresso(val milk: Boolean, val sugar: Boolean)
 </code></pre><pre><code class="language-kotlin show">data class Cappuchino(val sugar: Boolean)
 </code></pre><pre><code class="language-kotlin fade">data class BatchBrew(val milk: Boolean, val sugar: Boolean)
-</code></pre></div><div class="slide"><img height="90%" src="images/09-nonsense-removed.png" /></div><div class="slide"><h1>14 Options</h1><h2 class="byline">No nonsense</h2></div><div class="slide"><img height="90%" src="images/10-blurry-intersection.jpg" /></div><div class="slide"><h1>Vague types</h1><pre><code class="language-typescript show">var user_role: string;
-</code></pre><pre><code class="language-typescript show">
-</code></pre><pre><code class="language-typescript show">user_role = "admin";
-</code></pre><pre><code class="language-typescript show">user_role = "milk_free_cappuccino";
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">var user_role: "end_user" | "agent" | "admin";
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">user_role = "admin";
-</code></pre><pre><code class="language-typescript fade">user_role = "milk_free_cappuccino";
-</code></pre></div><div class="slide"><h1>Vague types</h1><pre><code class="language-typescript fade">var user_role: string;
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">user_role = "admin";
-</code></pre><pre><code class="language-typescript fade">user_role = "milk_free_cappuccino";
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript show">var user_role: "end_user" | "agent" | "admin";
-</code></pre><pre><code class="language-typescript show">
-</code></pre><pre><code class="language-typescript show">user_role = "admin";
-</code></pre><pre><code class="language-typescript show">user_role = "milk_free_cappuccino";
+</code></pre></div><div class="slide"><img height="90%" src="images/09-nonsense-removed.png" /></div><div class="slide"><h1>14 Options</h1><h2 class="byline">No nonsense</h2></div><div class="slide"><img height="90%" src="images/10-blurry-intersection.jpg" /></div><div class="slide"><h1>Vague types</h1><pre><code class="language-kotlin show">var userRole: String
+</code></pre><pre><code class="language-kotlin show">
+</code></pre><pre><code class="language-kotlin show">userRole = "admin"
+</code></pre><pre><code class="language-kotlin show">userRole = "milk_free_cappuccino"
+</code></pre><pre><code class="language-kotlin fade">
+</code></pre><pre><code class="language-kotlin fade">enum class UserRole {EndUser, Agent, Admin}
+</code></pre><pre><code class="language-kotlin fade">
+</code></pre><pre><code class="language-kotlin fade">var newUserRole: UserRole
+</code></pre><pre><code class="language-kotlin fade">
+</code></pre><pre><code class="language-kotlin fade">newUserRole = UserRole.Admin
+</code></pre><pre><code class="language-kotlin fade">// newUserRole = UserRole.MilkFreeCappuccino
+</code></pre></div><div class="slide"><h1>Vague types</h1><pre><code class="language-kotlin fade">var userRole: String
+</code></pre><pre><code class="language-kotlin fade">
+</code></pre><pre><code class="language-kotlin fade">userRole = "admin"
+</code></pre><pre><code class="language-kotlin fade">userRole = "milk_free_cappuccino"
+</code></pre><pre><code class="language-kotlin fade">
+</code></pre><pre><code class="language-kotlin show">enum class UserRole {EndUser, Agent, Admin}
+</code></pre><pre><code class="language-kotlin show">
+</code></pre><pre><code class="language-kotlin show">var newUserRole: UserRole
+</code></pre><pre><code class="language-kotlin show">
+</code></pre><pre><code class="language-kotlin show">newUserRole = UserRole.Admin
+</code></pre><pre><code class="language-kotlin show">// newUserRole = UserRole.MilkFreeCappuccino
 </code></pre></div><div class="slide"><img height="90%" src="images/11-twin-ducks.jpg" /></div><div class="slide"><h1>Related fields</h1><pre><code class="language-typescript show">var record: {id:         number,
 </code></pre><pre><code class="language-typescript show">             deleted:    Date   | null,
 </code></pre><pre><code class="language-typescript show">             deleted_by: string | null}

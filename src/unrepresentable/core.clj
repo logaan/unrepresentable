@@ -230,10 +230,11 @@
 
    ;; Real examples
    (image "10-blurry-intersection.jpg")
-   (typescript "11-user-role"
-               [(range 1 5)
-                (range 6 10)]
-               "Vague types")
+   (kotlin "11-user-role"
+           [(range 1 5)
+            (range 6 13)]
+           "Vague types"
+           0)
 
    ;; Related fields
    (image "11-twin-ducks.jpg")
