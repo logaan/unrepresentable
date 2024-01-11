@@ -239,28 +239,34 @@
    ;; Related fields
    (image "11-twin-ducks.jpg")
    (kotlin "13.0-valid-no-delete"
-               [(range 1 4)
-                (range 5 8)]
-               "Related fields"
-               2)
-   (typescript "13.1-valid-soft-delete"
-               [(range 5 8)]
-               "Related fields")
-   (typescript "13.2-invalid-soft-delete"
-               [(range 5 8)]
-               "Related fields")
-   (typescript "13.3-change-to-better"
-               [(range 5 10)]
-               "Related fields")
-   (typescript "14.0-better-no-delete"
-               [(range 7 9)]
-               "Related fields")
-   (typescript "14.1-better-soft-delete"
-               [(range 7 10)]
-               "Related fields")
-   (typescript "14.2-better-invalid-delete"
-               [(range 7 10)]
-               "Related fields")
+           [(range 1 4)
+            (range 5 8)]
+           "Related fields"
+           2)
+   (kotlin "13.1-valid-soft-delete"
+           [(range 5 8)]
+           "Related fields"
+           2)
+   (kotlin "13.2-invalid-soft-delete"
+           [(range 5 8)]
+           "Related fields"
+           2)
+   (kotlin "13.3-change-to-better"
+           [(range 5 10)]
+           "Related fields"
+           2)
+   (kotlin "14.0-better-no-delete"
+           [(range 7 9)]
+           "Related fields"
+           2)
+   (kotlin "14.1-better-soft-delete"
+           [(range 7 12)]
+           "Related fields"
+           2)
+   (kotlin "14.2-better-invalid-delete"
+           [(range 7 12)]
+           "Related fields"
+           2)
 
    ;; State machine car crash
    (image "12-car-crash.jpg")

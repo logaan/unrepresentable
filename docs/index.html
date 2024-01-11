@@ -176,70 +176,73 @@ data class BatchBrew(val milk: Boolean, val sugar: Boolean)</code></pre></div><d
 </code></pre><pre><code class="language-kotlin show">
 </code></pre><pre><code class="language-kotlin show">newUserRole = UserRole.Admin
 </code></pre><pre><code class="language-kotlin show">// newUserRole = UserRole.MilkFreeCappuccino
-</code></pre></div><div class="slide"><img height="90%" src="images/11-twin-ducks.jpg" /></div><div class="slide"><h1>Related fields</h1><pre><code class="language-kotlin show">data class Record(val id         : Int,
-</code></pre><pre><code class="language-kotlin show">                  val deleted    : Date?,
-</code></pre><pre><code class="language-kotlin show">                  val deleted_by : String?)
+</code></pre></div><div class="slide"><img height="90%" src="images/11-twin-ducks.jpg" /></div><div class="slide"><h1>Related fields</h1><pre><code class="language-kotlin show">data class Record(val id        : Int,
+</code></pre><pre><code class="language-kotlin show">                  val deleted   : Date?,
+</code></pre><pre><code class="language-kotlin show">                  val deletedBy : String?)
 </code></pre><pre><code class="language-kotlin fade">
-</code></pre><pre><code class="language-kotlin fade">val record = Record(id         = 1,
-</code></pre><pre><code class="language-kotlin fade">                    deleted    = null,
-</code></pre><pre><code class="language-kotlin fade">                    deleted_by = null)
-</code></pre></div><div class="slide"><h1>Related fields</h1><pre><code class="language-kotlin fade">data class Record(val id         : Int,
-</code></pre><pre><code class="language-kotlin fade">                  val deleted    : Date?,
-</code></pre><pre><code class="language-kotlin fade">                  val deleted_by : String?)
+</code></pre><pre><code class="language-kotlin fade">val record = Record(id        = 1,
+</code></pre><pre><code class="language-kotlin fade">                    deleted   = null,
+</code></pre><pre><code class="language-kotlin fade">                    deletedBy = null)
+</code></pre></div><div class="slide"><h1>Related fields</h1><pre><code class="language-kotlin fade">data class Record(val id        : Int,
+</code></pre><pre><code class="language-kotlin fade">                  val deleted   : Date?,
+</code></pre><pre><code class="language-kotlin fade">                  val deletedBy : String?)
 </code></pre><pre><code class="language-kotlin fade">
-</code></pre><pre><code class="language-kotlin show">val record = Record(id         = 1,
-</code></pre><pre><code class="language-kotlin show">                    deleted    = null,
-</code></pre><pre><code class="language-kotlin show">                    deleted_by = null)
-</code></pre></div><div class="slide"><h1>Related fields</h1><pre><code class="language-typescript fade">var record: {id:         number,
-</code></pre><pre><code class="language-typescript fade">             deleted:    Date   | null,
-</code></pre><pre><code class="language-typescript fade">             deleted_by: string | null}
-</code></pre><pre><code class="language-typescript fade">                                             
-</code></pre><pre><code class="language-typescript show">record = {id:         1,
-</code></pre><pre><code class="language-typescript show">          deleted:    new Date("2022-03-25"),
-</code></pre><pre><code class="language-typescript show">          deleted_by: "Logan"}
-</code></pre></div><div class="slide"><h1>Related fields</h1><pre><code class="language-typescript fade">var record: {id:         number,
-</code></pre><pre><code class="language-typescript fade">             deleted:    Date   | null,
-</code></pre><pre><code class="language-typescript fade">             deleted_by: string | null}
-</code></pre><pre><code class="language-typescript fade">                                             
-</code></pre><pre><code class="language-typescript show">record = {id:         1,
-</code></pre><pre><code class="language-typescript show">          deleted:    null,
-</code></pre><pre><code class="language-typescript show">          deleted_by: "Logan"}
-</code></pre></div><div class="slide"><h1>Related fields</h1><pre><code class="language-typescript fade">var record: {id:         number,
-</code></pre><pre><code class="language-typescript fade">             deleted:    Date   | null,
-</code></pre><pre><code class="language-typescript fade">             deleted_by: string | null}
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript show">type deletion = {deleted:    Date,
-</code></pre><pre><code class="language-typescript show">                 deleted_by: string};
-</code></pre><pre><code class="language-typescript show">
-</code></pre><pre><code class="language-typescript show">var record: {id:       number,
-</code></pre><pre><code class="language-typescript show">             deletion: deletion | null}
-</code></pre></div><div class="slide"><h1>Related fields</h1><pre><code class="language-typescript fade">type deletion = {deleted:    Date,
-</code></pre><pre><code class="language-typescript fade">                 deleted_by: string};
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">var record: {id:       number,
-</code></pre><pre><code class="language-typescript fade">             deletion: deletion | null}
-</code></pre><pre><code class="language-typescript fade">                                                        
-</code></pre><pre><code class="language-typescript show">record = {id:       1,
-</code></pre><pre><code class="language-typescript show">          deletion: null}
-</code></pre><pre><code class="language-typescript fade"> 
-</code></pre></div><div class="slide"><h1>Related fields</h1><pre><code class="language-typescript fade">type deletion = {deleted:    Date,
-</code></pre><pre><code class="language-typescript fade">                 deleted_by: string};
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">var record: {id:       number,
-</code></pre><pre><code class="language-typescript fade">             deletion: deletion | null}
-</code></pre><pre><code class="language-typescript fade">                                                        
-</code></pre><pre><code class="language-typescript show">record = {id:       1,
-</code></pre><pre><code class="language-typescript show">          deletion: {deleted:    new Date("2022-03-25"),
-</code></pre><pre><code class="language-typescript show">                     deleted_by: "Logan"}}
-</code></pre></div><div class="slide"><h1>Related fields</h1><pre><code class="language-typescript fade">type deletion = {deleted:    Date,
-</code></pre><pre><code class="language-typescript fade">                 deleted_by: string};
-</code></pre><pre><code class="language-typescript fade">
-</code></pre><pre><code class="language-typescript fade">var record: {id:       number,
-</code></pre><pre><code class="language-typescript fade">             deletion: deletion | null}
-</code></pre><pre><code class="language-typescript fade">                                                        
-</code></pre><pre><code class="language-typescript show">record = {id:       1,
-</code></pre><pre><code class="language-typescript show">          deletion: {deleted:    null
-</code></pre><pre><code class="language-typescript show">                     deleted_by: "Logan"}}
+</code></pre><pre><code class="language-kotlin show">val record = Record(id        = 1,
+</code></pre><pre><code class="language-kotlin show">                    deleted   = null,
+</code></pre><pre><code class="language-kotlin show">                    deletedBy = null)
+</code></pre></div><div class="slide"><h1>Related fields</h1><pre><code class="language-kotlin fade">data class Record(val id        : Int,
+</code></pre><pre><code class="language-kotlin fade">                  val deleted   : Date?,
+</code></pre><pre><code class="language-kotlin fade">                  val deletedBy : String?)
+</code></pre><pre><code class="language-kotlin fade">
+</code></pre><pre><code class="language-kotlin show">val record = Record(id        = 1,
+</code></pre><pre><code class="language-kotlin show">                    deleted   = Date(1705014201),
+</code></pre><pre><code class="language-kotlin show">                    deletedBy = "Logan")
+</code></pre></div><div class="slide"><h1>Related fields</h1><pre><code class="language-kotlin fade">data class Record(val id        : Int,
+</code></pre><pre><code class="language-kotlin fade">                  val deleted   : Date?,
+</code></pre><pre><code class="language-kotlin fade">                  val deletedBy : String?)
+</code></pre><pre><code class="language-kotlin fade">
+</code></pre><pre><code class="language-kotlin show">val record = Record(id        = 1,
+</code></pre><pre><code class="language-kotlin show">                    deleted   = null,
+</code></pre><pre><code class="language-kotlin show">                    deletedBy = "Logan")
+</code></pre></div><div class="slide"><h1>Related fields</h1><pre><code class="language-kotlin fade">data class Record(val id        : Int,
+</code></pre><pre><code class="language-kotlin fade">                  val deleted   : Date?,
+</code></pre><pre><code class="language-kotlin fade">                  val deletedBy : String?)
+</code></pre><pre><code class="language-kotlin fade">
+</code></pre><pre><code class="language-kotlin show">data class Deletion(val deleted   : Date,
+</code></pre><pre><code class="language-kotlin show">                    val deletedBy : String)
+</code></pre><pre><code class="language-kotlin show">
+</code></pre><pre><code class="language-kotlin show">data class NewRecord(val id       : Int,
+</code></pre><pre><code class="language-kotlin show">                     val deletion : Deletion?)
+</code></pre></div><div class="slide"><h1>Related fields</h1><pre><code class="language-kotlin fade">data class Deletion(val deleted   : Date,
+</code></pre><pre><code class="language-kotlin fade">                    val deletedBy : String)
+</code></pre><pre><code class="language-kotlin fade">
+</code></pre><pre><code class="language-kotlin fade">data class Record(val id       : Int,
+</code></pre><pre><code class="language-kotlin fade">                  val deletion : Deletion?)
+</code></pre><pre><code class="language-kotlin fade">
+</code></pre><pre><code class="language-kotlin show">val record = Record(id       = 1,
+</code></pre><pre><code class="language-kotlin show">                    deletion = null)
+</code></pre></div><div class="slide"><h1>Related fields</h1><pre><code class="language-kotlin fade">data class Deletion(val deleted   : Date,
+</code></pre><pre><code class="language-kotlin fade">                    val deletedBy : String)
+</code></pre><pre><code class="language-kotlin fade">
+</code></pre><pre><code class="language-kotlin fade">data class Record(val id       : Int,
+</code></pre><pre><code class="language-kotlin fade">                  val deletion : Deletion?)
+</code></pre><pre><code class="language-kotlin fade">
+</code></pre><pre><code class="language-kotlin show">val record = Record(
+</code></pre><pre><code class="language-kotlin show">    id       = 1,
+</code></pre><pre><code class="language-kotlin show">    deletion = Deletion(deleted   = Date(1705014201),
+</code></pre><pre><code class="language-kotlin show">                        deletedBy = "Logan")
+</code></pre><pre><code class="language-kotlin show">)
+</code></pre></div><div class="slide"><h1>Related fields</h1><pre><code class="language-kotlin fade">data class Deletion(val deleted   : Date,
+</code></pre><pre><code class="language-kotlin fade">                    val deletedBy : String)
+</code></pre><pre><code class="language-kotlin fade">
+</code></pre><pre><code class="language-kotlin fade">data class Record(val id       : Int,
+</code></pre><pre><code class="language-kotlin fade">                  val deletion : Deletion?)
+</code></pre><pre><code class="language-kotlin fade">
+</code></pre><pre><code class="language-kotlin show">// val record = Record(
+</code></pre><pre><code class="language-kotlin show">//     id       = 1,
+</code></pre><pre><code class="language-kotlin show">//     deletion = Deletion(deleted   = null,
+</code></pre><pre><code class="language-kotlin show">//                         deletedBy = "Logan")
+</code></pre><pre><code class="language-kotlin show">// )
 </code></pre></div><div class="slide"><img height="90%" src="images/12-car-crash.jpg" /></div><div class="slide"><h1>State machine car crash</h1><pre><code class="language-typescript">var parcel: {id:                     number,
              state:                  string,
              shipped:                Date    | null,
