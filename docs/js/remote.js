@@ -23,7 +23,12 @@ document.body.onkeydown = function(e) {
     } else if (e.code == "ArrowLeft") {
         previousSlide();
     } else if (e.code == "Digit0") {
-        setPresentationSlide(0);
+        window.location.hash = "0";
+    } else if (e.code == "Slash") {
+        alert("Space, Arrow Right: Next slide\n" +
+              "Arrow Left: Previous slide\n" +
+              "0: First slide\n" +
+              "r: Open remote");
     } else {
         console.log("e.code", e.code, e);
     }
